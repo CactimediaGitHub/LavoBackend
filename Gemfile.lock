@@ -504,6 +504,7 @@ DEPENDENCIES
   binding_of_caller
   bourbon
   bullet
+  bundler (= 1.14.6)
   capybara
   carrierwave!
   carrierwave-base64!
