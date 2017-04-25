@@ -63,6 +63,7 @@ debug:
 
 deploy:
   steps:
+
     - script:
       name: assets precompile
       code: RAILS_ENV=staging bundle exec rake assets:precompile
@@ -92,6 +93,9 @@ deploy:
 
 deploy-production:
   steps:
+    - script:
+      name: bundle install
+      code: gem install choice -v '0.2.0' && bundle install --retry 30 --production
     - script:
       name: assets precompile
       code: RAILS_ENV=production bundle exec rake assets:precompile
