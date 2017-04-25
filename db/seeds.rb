@@ -35,12 +35,12 @@ c3 = Customer.create!(phone: '123456789', name: 'Pjotr', surname: 'Ferdyschenko'
 c4 = Customer.create!(phone: '123456789', name: 'Eugene', surname: 'Potapenko', email: 'eugene.potapenko@litslink.com', password: '123456', password_confirmation: '123456', activated: true)
 c5 = Customer.create!(phone: '123456789', name: 'Nadiia', surname: 'Antonova', email: 'na@na.com', password: '1111', password_confirmation: '1111', activated: true)
 
-customer1_address1 = Address.create!(customer: c1, address1: 'Al Hamriya 7', address2: 'Near Dubai Hospital 4', city: 'Dubai', country: 'AE', human_name: 'My home address 1', postcode: '123456')
-customer2_address1 = Address.create!(customer: c2, address1: 'Al Hamriya 8', address2: 'Near Dubai Hospital 4', city: 'Dubai', country: 'AE', human_name: 'My home address 1', postcode: '123456')
-customer3_address1 = Address.create!(customer: c3, address1: 'Al Hamriya 3', address2: 'Near Dubai Hospital 4', city: 'Dubai', country: 'AE', human_name: 'My home address 1', postcode: '123456')
-customer3_address2 = Address.create!(customer: c3, address1: 'Al Hamriya 4', address2: 'Near Dubai Hospital 5', city: 'Dubai', country: 'AE', human_name: 'My home address 2', postcode: '123456')
-customer4_address1 = Address.create!(customer: c4, address1: 'Al Hamriya 5', address2: 'Near Dubai Hospital 5', city: 'Dubai', country: 'AE', human_name: 'My home address 1', postcode: '123456')
-customer5_address1 = Address.create!(customer: c5, address1: 'Al Hamriya 6', address2: 'Near Dubai Hospital 5', city: 'Dubai', country: 'AE', human_name: 'My home address 1', postcode: '123456')
+customer1_address1 = Address.create!(customer: c1, address1: 'Al Hamriya 7', address2: 'Near Dubai Hospital 4', city: 'Dubai', country: 'AE', human_name: 'My home address 1', nearest_landmark: '123456')
+customer2_address1 = Address.create!(customer: c2, address1: 'Al Hamriya 8', address2: 'Near Dubai Hospital 4', city: 'Dubai', country: 'AE', human_name: 'My home address 1', nearest_landmark: '123456')
+customer3_address1 = Address.create!(customer: c3, address1: 'Al Hamriya 3', address2: 'Near Dubai Hospital 4', city: 'Dubai', country: 'AE', human_name: 'My home address 1', nearest_landmark: '123456')
+customer3_address2 = Address.create!(customer: c3, address1: 'Al Hamriya 4', address2: 'Near Dubai Hospital 5', city: 'Dubai', country: 'AE', human_name: 'My home address 2', nearest_landmark: '123456')
+customer4_address1 = Address.create!(customer: c4, address1: 'Al Hamriya 5', address2: 'Near Dubai Hospital 5', city: 'Dubai', country: 'AE', human_name: 'My home address 1', nearest_landmark: '123456')
+customer5_address1 = Address.create!(customer: c5, address1: 'Al Hamriya 6', address2: 'Near Dubai Hospital 5', city: 'Dubai', country: 'AE', human_name: 'My home address 1', nearest_landmark: '123456')
 Card.create!(customer: c3, name: 'Steve Smith', number: '455701******8902', token: '3F36728453274738E053321E320A846A', card_bin: '455701', expiry_date: '1705', nick: 'My lovely card 1')
 Card.create!(customer: c3, name: 'Steve Smith', number: '512345******2346', token: '3F36728453274738E053321E320A846B', card_bin: '512345', expiry_date: '1705', nick: 'My lovely card 2')
 
@@ -108,8 +108,8 @@ ShippingMethod.create!(vendor: v4, delivery_period: 8, shipping_method_name: Shi
 ShippingMethod.create!(vendor: v5, delivery_period: 16, shipping_method_name: ShippingMethodName.first, shipping_charge: 1000)
 ShippingMethod.create!(vendor: v5, delivery_period: 8, shipping_method_name: ShippingMethodName.last, shipping_charge: 2000)
 
-customer1_address1 = Address.create!(customer: c5, address1: 'Al Hamriya', address2: 'Near Dubai Hospital', city: 'Dubai', country: 'AE', human_name: 'My home address', postcode: '123456')
-customer1_shipping_address1 = ShippingAddress.create!(address1: 'Al Hamriya', address2: 'Near Dubai Hospital', city: 'Dubai', country: 'AE', human_name: 'My home address', postcode: '123456')
+customer1_address1 = Address.create!(customer: c5, address1: 'Al Hamriya', address2: 'Near Dubai Hospital', city: 'Dubai', country: 'AE', human_name: 'My home address', nearest_landmark: '123456')
+customer1_shipping_address1 = ShippingAddress.create!(address1: 'Al Hamriya', address2: 'Near Dubai Hospital', city: 'Dubai', country: 'AE', human_name: 'My home address', nearest_landmark: '123456')
 vendor1_shipping1 = Shipping.new(shipping_method: vendor1_shipping_method1, address: customer1_shipping_address1, pick_up: "[#{Time.now}, #{Time.now + 2.hours}]", drop_off: "[#{Time.now + 8.hours}, #{Time.now + 8.hours + 2.hours}]")
 vendor1_order_item1 = OrderItem.new(inventory_item: vendor1_ii1, quantity: 2)
 total1 = API::Order::CartCalculator.new(
@@ -119,8 +119,8 @@ total1 = API::Order::CartCalculator.new(
 order1 = Order.new(vendor: v1, customer: c5, order_items: [vendor1_order_item1], shipping: vendor1_shipping1, total: total1)
 order1.save!
 
-customer2_address2 = Address.create!(customer: c2, address1: 'WH-5, Plot-597/226', address2: 'Dubai Investment Park 2', city: 'Dubai', country: 'AE', human_name: 'My home address', postcode: '123456')
-customer2_shipping_address2 = ShippingAddress.create!(address1: 'WH-5, Plot-597/226', address2: 'Dubai Investment Park 2', city: 'Dubai', country: 'AE', human_name: 'My home address', postcode: '123456')
+customer2_address2 = Address.create!(customer: c2, address1: 'WH-5, Plot-597/226', address2: 'Dubai Investment Park 2', city: 'Dubai', country: 'AE', human_name: 'My home address', nearest_landmark: '123456')
+customer2_shipping_address2 = ShippingAddress.create!(address1: 'WH-5, Plot-597/226', address2: 'Dubai Investment Park 2', city: 'Dubai', country: 'AE', human_name: 'My home address', nearest_landmark: '123456')
 vendor2_shipping2 = Shipping.new(shipping_method: vendor2_shipping_method3, address: customer2_shipping_address2, pick_up: "[#{Time.now}, #{Time.now + 2.hours}]", drop_off: "[#{Time.now + 8.hours}, #{Time.now + 8.hours + 2.hours}]")
 
 vendor2_order_item2 = OrderItem.new(inventory_item: vendor2_ii8, quantity: 4)
