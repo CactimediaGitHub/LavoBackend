@@ -95,7 +95,7 @@ deploy-production:
   steps:
     - script:
       name: bundle install
-      code: gem install choice -v '0.2.0' && bundle install --retry 30 --production
+      code: gem install choice -v '0.2.0' && bundle install --retry 30 --deployment
     - script:
       name: assets precompile
       code: RAILS_ENV=production bundle exec rake assets:precompile
