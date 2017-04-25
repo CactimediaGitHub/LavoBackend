@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    errors:
+      models:
+        shipping_method:
+          attributes:
+            shipping_method_name_id:
+              exists: 'exists for this vendor'

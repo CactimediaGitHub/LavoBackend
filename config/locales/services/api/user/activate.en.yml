@@ -1,0 +1,8 @@
+en:
+  activemodel:
+    errors:
+      models:
+        api/user/activate:
+          attributes:
+            user:
+              already_activated: "already activated"

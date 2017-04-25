@@ -1,0 +1,8 @@
+en:
+  activemodel:
+    errors:
+      models:
+        api/user/social_sign_in:
+          attributes:
+            token:
+              invalid_token: "is invalid or expired"

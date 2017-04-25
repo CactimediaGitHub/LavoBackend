@@ -1,0 +1,11 @@
+en:
+  helpers:
+    label:
+      item:
+        icon: 'Icon (1mb max)'
+      promotion:
+        icon: 'Icon (1mb max)'
+        background_image: 'Background image (1mb max)'
+      vendor:
+        avatar: 'Avatar (1mb max)'
+        images: 'Images (9mb max)'

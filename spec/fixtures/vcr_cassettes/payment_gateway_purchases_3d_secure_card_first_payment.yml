@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sbpaymentservices.payfort.com/FortAPI/paymentApi
+    body:
+      encoding: UTF-8
+      string: '{"command":"PURCHASE","amount":"4500","currency":"AED","token_name":"40C9078D7A110AF3E053321E320A3835","customer_name":"Steve
+        Smith","customer_email":"John.Doe-1@example.com","merchant_reference":1479142930,"language":"en","merchant_extra":"BAhbB2kASSIPZGY1Y2M5MDUzNwY6BkVG","merchant_identifier":"lBmxhStQ","access_code":"B7a8a41jtuK8YBi3dSnA","signature":"2E2346AEFB7045F38247C35F444B1D37927716E0C4DE76560B64E698845DE308"}'
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, max-age=0, private
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Mon, 14 Nov 2016 17:05:28 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      P3p:
+      - CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+      Pragma:
+      - no-cache
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - SESSION=37aab847-da1c-4b45-9553-f8534c1d0959; Path=/FortAPI/; Secure; HttpOnly
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '901'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"access_code":"B7a8a41jtuK8YBi3dSnA","eci":"ECOMMERCE","status":"20","card_number":"455701******8902","fort_id":"147914287500021163","3ds_url":"https://testfort.payfort.com/secure3dsSimulator?FORTSESSIONID\u003d581da3bj12mbi2lvuk2aviac57\u0026paymentId\u003d5740559166725965820\u0026DOID\u003dC70BAA4D83511CCADAEC071226C925FB\u0026o\u003dpt\u0026action\u003dretry","response_code":"20064","token_name":"40C9078D7A110AF3E053321E320A3835","customer_name":"Steve
+        Smith","customer_email":"John.Doe-1@example.com","customer_ip":"128.0.171.101","merchant_extra":"BAhbB2kASSIPZGY1Y2M5MDUzNwY6BkVG","currency":"AED","amount":"4500","merchant_reference":"1479142930","response_message":"3-D
+        Secure check requested","command":"PURCHASE","payment_option":"VISA","language":"en","expiry_date":"1705","merchant_identifier":"lBmxhStQ","signature":"2492dcab314e0f7dbe7a9abf9b6de9a5d53a92e1b5d3b04f002234e602f11c49"}'
+    http_version: 
+  recorded_at: Mon, 14 Nov 2016 17:02:40 GMT
+recorded_with: VCR 3.0.3

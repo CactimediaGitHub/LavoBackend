@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://fcm.googleapis.com/fcm/send
+    body:
+      encoding: UTF-8
+      string: '{"registration_ids":["fv6BNsXkW4M:APA91bEJGOUzOgGlS_OyU90Av6lDI68AMMIW3rOiCIweYXdwePRcFSYmTQ70R23fCpl7WXTGpH9fsAWTgAMUUu7vSf1anYtlTf5NkldeIn5-ftsCh8nwHItZtXXLhSLtgsyeu-6XTiLD"],"notification":{"body":"Order
+        #83: state changed to ''cancelled''","title":"Order #83: state changed to
+        ''cancelled''"},"data":{"message":"Order #83: state changed to ''cancelled''"},"collapse_key":"lavo_laundry"}'
+    headers:
+      Authorization:
+      - key=AIzaSyAHRI1XZnOe6u7Wc7AFZbJOcjPAFjVvfUw
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 18 Aug 2016 10:48:54 GMT
+      Expires:
+      - Thu, 18 Aug 2016 10:48:54 GMT
+      Cache-Control:
+      - private, max-age=0
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="35,34,33,32,31,30"
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"multicast_id":8183096881040845179,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1471517334357349%de3760eede3760ee"}]}'
+    http_version: 
+  recorded_at: Thu, 18 Aug 2016 10:48:54 GMT
+recorded_with: VCR 3.0.3

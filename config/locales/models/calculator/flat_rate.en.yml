@@ -1,0 +1,5 @@
+en:
+  activerecord:
+    models:
+      promotion/calculators/flat_rate:
+        description: 'Flat rate'

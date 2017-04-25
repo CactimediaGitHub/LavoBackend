@@ -1,0 +1,11 @@
+<div class="field-unit__label">
+  <%= f.label field.attribute %>
+</div>
+<div class="field-unit__field">
+  <% if f.object.new_record? %>
+    <%= f.text_field field.attribute %>
+  <% else %>
+    <% percent = PromotionAction.find(f.object.id).preferred_percent.to_i %>
+    <%= f.text_field field.attribute, value: percent %>
+  <% end %>
+</div>

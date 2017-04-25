@@ -1,0 +1,108 @@
+{"amount":"2000","merchant_reference":"1478619472","access_code":"B7a8a41jtuK8YBi3dSnA","command":"PURCHASE","token_name":"40C8EE9D02E50B08E053321E320A865C","customer_name":"фывафыва фывафыва","customer_email":"customer-1@example.com","language":"en","merchant_extra":"BAhbB2kASSIPZGRiZGZhMjgwZAY6BkVG","merchant_identifier":"lBmxhStQ","signature":"D3CC25331FF17B126AA374A26382E9EA9B3E1F99955634CE88B9E3F60385C70A","currency":"AED"}
+{"amount":"4500","merchant_reference":"87",        "access_code":"B7a8a41jtuK8YBi3dSnA","command":"PURCHASE","token_name":"3F36728453274738E053321E320A846C","customer_name":"Steve Smith",      "customer_email":"John.Doe-1@example.com","language":"en","merchant_extra":"BAhbB2kASSIPYmU0YTg3MzBmZQY6BkVG","merchant_identifier":"lBmxhStQ","signature":"66EB876381479B885E5E65C34358E727E384ABEEEB5C221A39DF4B40927BDA4C","currency":"AED"}
+
+
+
+
+connection_http_method=GET connection_uri=https://api.lavo.devlits.com/customers/1/cards?access_code=B7a8a41jtuK8YBi3dSnA&card_number=400555******0001&status=18&response_code=18000&token_name=3FB1186C992D13F7E053321E320AD688&merchant_extra=BAh7BjoJbmlja0kiDURteXRybyB2BjoGRVQ&card_bin=400555&service_command=TOKENIZATION&return_url=https%3A%2F%2Fapi.lavo.devlits.com%2Fcustomers%2F1%2Fcards&merchant_reference=30788efbf6&card_holder_name=Dmytro+V&remember_me=YES&response_message=Success&language=en&expiry_date=1705&merchant_identifier=lBmxhStQ&signature=bdac77f3c6b2d55e7ba8b5be2512944b96fb05b3b4aec70b1e1db05a543286db
+[ActiveMerchant::Billing::PayfortGateway] --> 204 No Content (0 0.2439s)
+
+
+BAh7BjoTY3JlZGl0c19hbW91bnRpaQ
+6c0b841d4f3d4a4bbf78ec14fd70f7a1
+BAhbB2lpSSIlNmMwYjg0MWQ0ZjNkNGE0YmJmNzhlYzE0ZmQ3MGY3YTEGOgZFVA
+BAhbB2lpSSIPZjhjNzM2NjEwOQY6BkVG
+
+rspec spec/acceptance/v1/payment_gateway/create_card_spec.rb:33
+rspec spec/acceptance/v1/payment_gateway/purchase_spec.rb:38
+
+
+access_code
+language
+merchant_identifier
+merchant_reference
+service_command
+
+access_code = SILgpo7pWbmzuURp2qri
+language = en
+merchant_identifier = MxvOupuG
+merchant_reference = MyReference0001
+service_command = TOKENIZATION
+
+card_security_code = 123
+card_number = 4005550000000001
+expiry_date = 1705
+remember_me = YES
+card_holder_name = John Smith
+
+
+------------
+Response
+access_code=B7a8a41jtuK8YBi3dSnA&
+card_number=424242******4242&
+status=00&
+response_code=00008&
+service_command=TOKENIZATION&
+return_url=https%3A%2F%2Fexample.com&merchant_reference=lBmxhStQ&
+card_holder_name=Steve+Smith&
+remember_me=YES&
+response_message=Signature+mismatch&
+language=en&
+expiry_date=179&
+merchant_identifier=lBmxhStQ&
+signature=e377ba94336a6f1fe1816fd2e78801dad3674378fc18f6038787737c43b0cc4e
+
++ merchant_reference
++ language
+
++ merchant_identifier
++ access_code
++ signature
+
+order_description
+return_url
+remember_me
+
+# add invoice
++ currency
++ amount
+
+#add payment
+payment_option (visa/master)
++ token_name
++ card_security_code
++ customer_name
+
+# add customer data
++ customer_email
++ customer_ip
+
+
++ token_name
++ card_security_code
+
+'http://api.lavo.dev/payment_gateway/customers/302/cards?access_code=B7a8a41jtuK8YBi3dSnA&card_number=455701******8902&status=18&response_code=18000&token_name=3EFCB4CE86162AFFE053321E320A47A1&card_bin=455701&service_command=TOKENIZATION&return_url=http%3A%2F%2Fapi.lavo.dev%2Fpayment_gateway%2Fcustomers%2F302%2Fcards&merchant_reference=lBmxhStQ-137&card_holder_name=Steve+Smith&remember_me=YES&response_message=Success&language=en&expiry_date=1705&merchant_identifier=lBmxhStQ&signature=b89a79492b5ed1e4821d6f536905cf968534f692063cd1ff70495d30faccc8e7'
+
+curl 'https://sbcheckout.PayFort.com/FortAPI/paymentPage' -L -v -d "service_command=TOKENIZATION&merchant_identifier=lBmxhStQ&access_code=B7a8a41jtuK8YBi3dSnA&merchant_reference=lBmxhStQ-133&language=en&return_url=http%3A%2F%2Fapi.lavo.dev%2Fpayment_gateway%2Fcustomers%2F298%2Fcards&signature=E1B4000DF78FD3B10EA2557FA1D35E25BB8A47267F74B6E183CE0C1FB0B85F45&remember_me=YES&card_number=4557012345678902&expiry_date=1705&card_security_code=123&card_holder_name=Steve+Smith"
+'http://api.lavo.dev/payment_gateway/customers/298/cards?access_code=B7a8a41jtuK8YBi3dSnA&card_number=455701******8902&status=18&response_code=18000&token_name=3EFC8BA6BCEF0B2CE053321E320AA6F0&card_bin=455701&service_command=TOKENIZATION&return_url=http%3A%2F%2Fapi.lavo.dev%2Fpayment_gateway%2Fcustomers%2F298%2Fcards&merchant_reference=lBmxhStQ-133&card_holder_name=Steve+Smith&remember_me=YES&response_message=Success&language=en&expiry_date=1705&merchant_identifier=lBmxhStQ&signature=5e7ae9143ea48bbc39dcf3cdec78e4fc4ee6b5db37b250af1619bb6e5796ae6f'
+
+curl 'https://sbcheckout.PayFort.com/FortAPI/paymentPage' -L -v -d "service_command=TOKENIZATION&merchant_identifier=lBmxhStQ&access_code=B7a8a41jtuK8YBi3dSnA&merchant_reference=lBmxhStQ-129&language=en&return_url=http%3A%2F%2Fapi.lavo.dev%2Fpayment_gateway%2Fcustomers%2F294%2Fcards&signature=A1A6F2A0AE3D75867D8ADE1F4C7F7D17A15887D2124E362751F73AF95317A198&remember_me=YES&card_number=4557012345678902&expiry_date=175&card_security_code=123&card_holder_name=Steve+Smith"
+'http://api.lavo.dev/payment_gateway/customers/294/cards?access_code=B7a8a41jtuK8YBi3dSnA&card_number=455701******8902&status=18&response_code=18000&token_name=24mR96VQL&card_bin=455701&service_command=TOKENIZATION&return_url=http%3A%2F%2Fapi.lavo.dev%2Fpayment_gateway%2Fcustomers%2F294%2Fcards&merchant_reference=lBmxhStQ-129&card_holder_name=Steve+Smith&remember_me=YES&response_message=Success&language=en&expiry_date=175&merchant_identifier=lBmxhStQ&signature=931a1e3da41a01df69865f90b1f0c304a7421df714f83bf8b52d90f715673167'
+
+curl 'https://sbcheckout.PayFort.com/FortAPI/paymentPage' -L -v -d "service_command=TOKENIZATION&merchant_identifier=lBmxhStQ&access_code=B7a8a41jtuK8YBi3dSnA&merchant_reference=lBmxhStQ-131&language=en&return_url=http%3A%2F%2Fapi.lavo.dev%2Fpayment_gateway%2Fcustomers%2F296%2Fcards&signature=692C7855A82E24BFCDBF278B171B91C9419508C698B825CE7405309E09DED5BA&remember_me=YES&card_number=4557012345678902&expiry_date=175&card_security_code=123&card_holder_name=Steve+Smith"
+'http://api.lavo.dev/payment_gateway/customers/296/cards?access_code=B7a8a41jtuK8YBi3dSnA&card_number=455701******8902&status=18&response_code=18000&token_name=YY9qDg4xp&card_bin=455701&service_command=TOKENIZATION&return_url=http%3A%2F%2Fapi.lavo.dev%2Fpayment_gateway%2Fcustomers%2F296%2Fcards&merchant_reference=lBmxhStQ-131&card_holder_name=Steve+Smith&remember_me=YES&response_message=Success&language=en&expiry_date=175&merchant_identifier=lBmxhStQ&signature=d7a13c5aef2a81e5349d4371d9f25513290c7d9f341ed77973575d2d16b9e18b'
+
+curl "https://sbcheckout.PayFort.com/FortAPI/paymentPage" -L -v -d "service_command=TOKENIZATION&merchant_identifier=lBmxhStQ&access_code=B7a8a41jtuK8YBi3dSnA&merchant_reference=lBmxhStQ-3&language=en&return_url=http%3A%2F%2Fapi.lavo.dev%2Fpayment_gateway%2Fcustomers%2F192%2Fcards&signature=58A91C51157A8A888BE3B10E90EB5E5941486D83D48324DBDBD2ECC3F183F7BB&remember_me=YES&card_number=4557012345678902&expiry_date=175&card_security_code=123&card_holder_name=Steve+Smith"
+'http://api.lavo.dev/payment_gateway/customers/192/cards?access_code=B7a8a41jtuK8YBi3dSnA&card_number=455701******8902&status=18&response_code=18000&token_name=lPynMZQwm&card_bin=455701&service_command=TOKENIZATION&return_url=http%3A%2F%2Fapi.lavo.dev%2Fpayment_gateway%2Fcustomers%2F192%2Fcards&merchant_reference=lBmxhStQ-3&card_holder_name=Steve+Smith&remember_me=YES&response_message=Success&language=en&expiry_date=175&merchant_identifier=lBmxhStQ&signature=588acc0c46a6c41b114b55f6df96608be426d040c3125e90f13bf9879b7a7c55'
+
+curl 'https://sbpaymentservices.payfort.com/FortAPI/paymentApi' -v -d -H 'Content-Type: application/json' "{\"command\":\"PURCHASE\",\"amount\":\"4500\",\"currency\":\"AED\",\"token_name\":\"lPynMZQwm\",\"customer_name\":\"Steve Smith\",\"customer_email\":\"John.Doe-1@example.com\",\"merchant_reference\":\"lBmxhStQ-91\",\"language\":\"en\",\"return_url\":\"http://api.lavo.dev/payment_gateway/payments\",\"merchant_identifier\":\"lBmxhStQ\",\"access_code\":\"B7a8a41jtuK8YBi3dSnA\",\"signature\":\"06C66C11740A9FF8AB06A253AE33418A6732E623044E3672F10951F0B4EC694E\"}"
+
+curl 'https://sbpaymentservices.payfort.com/FortAPI/paymentApi' -v -d -H 'Content-Type: application/json' "{\"command\":\"PURCHASE\",\"amount\":\"4500\",\"currency\":\"AED\",\"token_name\":\"40C8D9E314890AEBE053321E320A6595\",\"customer_name\":\"Steve Smith\",\"customer_email\":\"John.Doe-1@example.com\",\"merchant_reference\":1479032926,\"language\":\"en\",\"merchant_extra\":\"BAhbB2kASSIPNDhhZGMxZDgzOAY6BkVG\",\"merchant_identifier\":\"lBmxhStQ\",\"access_code\":\"B7a8a41jtuK8YBi3dSnA\",\"signature\":\"CB5375B7B33E61A42671BF5432CC31CB165CA7D0C04091842BC6B97E1E6E842C\"}"
+
+https://testfort.payfort.com/secure3dsSimulator?FORTSESSIONID=prstho3hrcgkuo44qcn1eeens5&paymentId=5740559166725965820&DOID=C70BAA4D83511CCADAEC071226C925FB&o=pt&action=retry
+
+  config.assets.enabled = true
+  config.assets.raise_runtime_errors = true
+  config.assets.debug = true
+  config.assets.digest = false
+

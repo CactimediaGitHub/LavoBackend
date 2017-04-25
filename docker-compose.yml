@@ -1,0 +1,39 @@
+
+postgres:
+  container_name: postgres
+  image: mdillon/postgis:9.5
+  environment:
+    - POSTGRES_PASSWORD=
+    - POSTGRES_USER=lavo
+    - POSTGRES_DB=lavo_laundry_staging
+#  volumes:
+#    - /var/docker/lavo/data/postgres/data:/var/lib/postgresql/data
+nginx:
+  container_name: nginx
+  image: nginx
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - /var/docker/lavo/data/nginx/sites-enabled:/etc/nginx/conf.d
+  volumes_from:
+    - lavo-backend
+  links:
+    - lavo-backend
+lavo-backend:
+  container_name: lavo-backend
+  image: lits/docker-dev-base-img:root_user
+  environment:
+    - RUBY_APP=/var/app
+    - RAILS_ENV=staging
+    - DATABASE_URL=
+    - SECRET_KEY_BASE=
+    - RUBY_ENV=staging
+  volumes:
+    - /var/docker/lavo/data/app/current:/var/app
+    - /var/docker/lavo/data/app/shared/uploads/:/var/app/public/uploads/
+  expose:
+    - "3000"
+  links:
+    - postgres
+  command: /bin/bash -l -c "sleep 10 ; bundle exec rake db:migrate && bundle exec rake db:seed && bundle exec unicorn -p 3000 -c config/unicorn.rb"

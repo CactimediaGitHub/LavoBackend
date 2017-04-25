@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body style="margin: 0; padding: 0">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#f4f5f6"
+         style="font-family:Arial; padding: 40px 0;">
+    <tbody>
+    <tr>
+      <td>
+        <table width="800" border="0" align="center" cellpadding="0" cellspacing="0"
+               style="background:#fff;font-family:Arial;margin:0px auto">
+          <tbody>
+          <tr>
+            <td>
+              <table width="800" border="0" cellspacing="0" cellpadding="0" style="margin:0px auto">
+                <tbody>
+                <tr>
+                  <img src="<%= asset_path('top.jpg') %>" alt="" width="800" height="213" style="margin:0px">
+                </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table width="800" border="0" cellspacing="0" cellpadding="0" style="background:#fff">
+                <tbody>
+                <tr>
+                  <td>
+                    <table width="760" border="0" cellspacing="0" cellpadding="0" style="margin:16px auto">
+                      <tbody>
+                      <tr>
+                        <td style="width: 100%">
+                          <div style="border: 1px dashed #ccc">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0 38px">
+                              <tbody>
+                              <tr>
+                                <td>
+                                  <p
+                                    style="margin:0; padding: 35px 0 30px; font-family: Arial; font-size: 30px; line-height: 1; color: #0483cc;">
+                                    <%= @greeting || 'Hello' %>
+                                  </p>
+                                  <%= yield %>
+                                  <p
+                                    style="margin:0; padding: 0 0 10px; font-family: Arial; font-size: 14px; line-height: 1; color: #5c6480;">
+                                    Note : Please do not reply back to this mail. This is sent from an unattended mail
+                                    box.
+                                  </p>
+                                  <p
+                                    style="margin:0; padding: 0 0 10px; font-family: Arial; font-size: 14px; line-height: 1; color: #5c6480;">
+                                    This e-mail was sent from Lavo
+                                  </p>
+                                  <p
+                                    style="margin:0; padding: 30px 0 10px; font-family: Arial; font-size: 14px; line-height: 1; color: #05a4ff;">
+                                    Thanks & Regards,
+                                  </p>
+                                  <p
+                                    style="margin:0; padding: 0 0 30px; font-family: Arial; font-size: 14px; line-height: 1; color: #05a4ff;">
+                                    Lavo Team
+                                  </p>
+                                </td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p
+                            style="margin:0; padding: 30px 0 30px; text-align: center; font-family: Arial; font-size: 13px; line-height: 1; color: #5c6480;">
+                            © Lavo, 2016 · All Rights Reserved
+                          </p>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</body>
+</html>

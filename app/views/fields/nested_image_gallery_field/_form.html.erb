@@ -1,0 +1,15 @@
+<div class="field-unit__label">
+  <%= f.label field.attribute %>
+</div>
+<div class="field-unit__field">
+  <% unless f.object.new_record? %>
+    <% f.object.images.each_with_index do |img| %>
+      <%= image_tag img.url(:thumb) %>
+    <% end %>
+  <% end %>
+
+  <% 1.upto(9) do |count| %>
+    <%= f.label "image#{count}" %>
+    <%= f.file_field(:images, id: "images#{count}", :multiple => true) %>
+  <% end %>
+</div>

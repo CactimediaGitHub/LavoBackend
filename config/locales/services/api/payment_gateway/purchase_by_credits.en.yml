@@ -1,0 +1,8 @@
+en:
+  activemodel:
+    errors:
+      models:
+        api/v1/payment_gateway/purchase_by_credits:
+          attributes:
+            base:
+              insufficient_credits: 'Not enough credits'

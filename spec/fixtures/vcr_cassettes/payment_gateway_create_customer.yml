@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api2.checkout.com/v2/customers
+    body:
+      encoding: UTF-8
+      string: '{"card":{"name":"Miss Matt Quigley","number":"4242424242424242","cvv":"424","expiryYear":"2017","expiryMonth":"09"},"email":"LanaSMartin@dayrep.com"}'
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Authorization:
+      - secret-key
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Succeeded
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '105'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/7.5
+      Product:
+      - '3.01'
+      Version:
+      - v2.39.1
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept,X-AuthToken,Access-Control-Request-Method,
+        Access-Control-Allow-Methods,Access-Control-Request-Headers,authorization,X_Auth_Credentials
+      Access-Control-Request-Method:
+      - OPTIONS, POST,GET,PUT,DELETE
+      Access-Control-Allow-Methods:
+      - OPTIONS, POST,GET,PUT,DELETE
+      Access-Control-Request-Headers:
+      - authorization
+      Date:
+      - Thu, 16 Jun 2016 13:44:30 GMT
+    body:
+      encoding: UTF-8
+      string: '{"responseCode":"10000","id":"cust_49F7E6F8-B990-4E4E-BC58-419A3B0556D0","name":"Miss Matt
+        Quigley","liveMode":true,"created":"2015-04-07T14:52:57Z","email":"LanaSMartin@dayrep.com","description":"Minusmaioresvoluptatibussintculpaquasutreiciendisvoluptatem.","phone":{"countryCode":"44","number":"12345678"},"metadata":{"keyname":"testvalue"},"cards":{"count":1,"data":[{"id":"card_721F541E-EF01-4390-A017-7496BE5BFE54","last4":"4242","paymentMethod":"VISA","fingerprint":"C2FD7FEE-1DE9-4A6F-BC0C-1210D2E86FB9","customerId":"cust_49F7E6F8-B990-4E4E-BC58-419A3B0556D0","name":"Miss
+        Matt Quigley","expiryMonth":"09","expiryYear":"2017","billingDetails":{"addressLine1":"72
+        Myrna Parkways","addressLine2":"Hoppe Fork","nearest_landmark":"aq81ct","country":"US","city":"Serenamouth","state":"Luzmouth","phone":{"countryCode":"44","number":"12345678"}},"cvvCheck":null,"avsCheck":null,"responseCode":"10000"}]},"defaultCard":"card_721F541E-EF01-4390-A017-7496BE5BFE54"}'
+    http_version:
+  recorded_at: Thu, 16 Jun 2016 13:44:30 GMT
+

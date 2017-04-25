@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://fcm.googleapis.com/fcm/send
+    body:
+      encoding: UTF-8
+      string: '{"registration_ids":["fmdiBxyYomk:APA91bH1riyrQGPYwzZCPQYKZnQJx9wOzJ460aiZ3KlUsIyVbsl70c0soWJkwgeWzmByU2WbjJ910aiy07koz4uUzWwN7Ui__wgCGcaKwJaSIe6460fFSguCn3z75nDuqi-d5dnoAhSl"],"notification":{"title":"Your
+        Lavo order state changed","body":"My super cool message"},"collapse_key":"lavo_laundry","priority":"high"}'
+    headers:
+      Authorization:
+      - key=AAAAO36-eTc:APA91bFJbfp65Br9MHXii7f5XGUy-fhED0hI_2gT9ZINW9LDhSepvEQSGJ9aIy9auAzSQpFFJ_D4uGGFIqDoZeMJEA3EBBRMpNDVCtXDdxYkycXgz0qotZQ3MRx5CZ15D9VmNycvE0DFYMAqxMQ1H1cqsf_1mvXuLw
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 07 Dec 2016 14:27:12 GMT
+      Expires:
+      - Wed, 07 Dec 2016 14:27:12 GMT
+      Cache-Control:
+      - private, max-age=0
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="36,35,34"
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"multicast_id":8894636982995229790,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1481120832298179%7071f1797071f179"}]}'
+    http_version: 
+  recorded_at: Wed, 07 Dec 2016 14:27:13 GMT
+recorded_with: VCR 3.0.3

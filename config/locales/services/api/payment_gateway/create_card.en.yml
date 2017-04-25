@@ -1,0 +1,7 @@
+en:
+  errors:
+    attributes:
+      number:
+        exists: "Card's number already exists"
+      nick:
+        exists: "Card's name already exists"

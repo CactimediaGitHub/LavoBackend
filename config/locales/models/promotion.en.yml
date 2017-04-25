@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    errors:
+      models:
+        promotion:
+          attributes:
+            expires_at:
+              invalid_date_range: 'invalid date range'

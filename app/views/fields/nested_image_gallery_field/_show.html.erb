@@ -1,0 +1,5 @@
+<% field.data.each_with_index do |img, index| %>
+
+  <%= image_tag img.url %>
+  <%= link_to "Delete", admin_vendor_path(img.model, index: index, delete_img: true), id: "images_#{index}" ,method: :delete, data: { confirm: "Are you sure you want to delete this image?" } %>
+<% end %>

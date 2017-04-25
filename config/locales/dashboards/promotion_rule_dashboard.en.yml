@@ -1,0 +1,11 @@
+en:
+  order_total_rule:
+    operators:
+      gt: 'greater than'
+      gte: 'greater than or equal to'
+      lt: 'less than'
+      lte: 'less than or equal to'
+  gt: 'greater than'
+  gte: 'greater than or equal to'
+  lt: 'less than'
+  lte: 'less than or equal to'

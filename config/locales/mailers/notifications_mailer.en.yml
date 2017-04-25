@@ -1,0 +1,7 @@
+en:
+  notifications_mailer:
+    password_digest:
+      subject: "Instructions on how to reset your password"
+    password_generated:
+      subject: "Your new generated password"
+

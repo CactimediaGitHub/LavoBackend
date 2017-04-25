@@ -1,0 +1,5 @@
+en:
+  activerecord:
+    models:
+      promotion/calculators/flat_percent:
+        description: 'Flat percent'

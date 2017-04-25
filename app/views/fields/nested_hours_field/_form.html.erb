@@ -1,0 +1,44 @@
+<div class="field-unit__label">
+  <%= f.label field.attribute %>
+</div>
+<div class="field-unit__field">
+  <%= f.fields_for :hours, OpenStruct.new(f.object.hours) do |h| %>
+
+    <%= h.label :"0-2" %>
+    <%= h.select :"0-2", %w[open closed] %>
+
+    <%= h.label :"2-4" %>
+    <%= h.select :"2-4", %w[open closed] %>
+
+    <%= h.label :"4-6" %>
+    <%= h.select :"4-6", %w[open closed] %>
+
+    <%= h.label :"6-8" %>
+    <%= h.select :"6-8", %w[open closed] %>
+
+    <%= h.label :"8-10" %>
+    <%= h.select :"8-10", %w[open closed] %>
+
+    <%= h.label :"10-12" %>
+    <%= h.select :"10-12", %w[open closed] %>
+
+    <%= h.label :"12-14" %>
+    <%= h.select :"12-14", %w[open closed] %>
+
+    <%= h.label :"14-16" %>
+    <%= h.select :"14-16", %w[open closed] %>
+
+    <%= h.label :"16-18" %>
+    <%= h.select :"16-18", %w[open closed] %>
+
+    <%= h.label :"18-20" %>
+    <%= h.select :"18-20", %w[open closed] %>
+
+    <%= h.label :"20-22" %>
+    <%= h.select :"20-22", %w[open closed] %>
+
+    <%= h.label :"22-24" %>
+    <%= h.select :"22-24", %w[open closed] %>
+
+  <% end %>
+</div>

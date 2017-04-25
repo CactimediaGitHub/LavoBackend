@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    eligibility_errors:
+      messages:
+        total_less_than: This coupon code can't be applied to orders less than %{amount}.
+        total_less_than_or_equal: This coupon code can't be applied to orders less than or equal to %{amount}.
+        total_more_than: This coupon code can't be applied to orders higher than %{amount}.
+        total_more_than_or_equal: This coupon code can't be applied to orders higher than or equal to %{amount}.

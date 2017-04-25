@@ -1,0 +1,120 @@
+box: lits/docker-ruby-phantomjs:2.4.0
+services:
+  - id: mdillon/postgis:9.6
+    env:
+      POSTGRES_PASSWORD: $APP_POSTGRES_PASSWORD
+      POSTGRES_USER: $APP_POSTGRES_USER
+      POSTGRES_DB: $APP_POSTGRES_DB
+
+build:
+  steps:
+    - script:
+      name: bundle install
+      code: bundle install --retry 30 --deployment
+    - script:
+      name: remove unicorn config
+      code: rm config/unicorn.rb
+
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        username: wercker
+        notify_on: failed
+
+tests:
+  steps:
+    - script:
+      name: remove rvm file
+      code: rm -f .ruby-gemset && rm -f .ruby-version
+    - script:
+      name: run ruby-lint
+      code: gem install ruby-lint && ruby-lint app config lib spec test --config ./config/ruby-lint.yml
+    - script:
+      name: db migrate
+      code: RAILS_ENV=staging bundle exec rake db:migrate
+    - script:
+      name: Keys chek
+      code: RAILS_ENV=staging bundle exec rake immigrant:check_keys --trace
+    - script:
+      name: docs generate
+      code: RAILS_ENV=test bundle exec rake docs:generate
+    - script:
+      name: db seed
+      code: RAILS_ENV=staging bundle exec rake db:seed --trace
+
+
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        username: wercker
+        notify_on: failed
+
+debug:
+  steps:
+    - script:
+      name: install vim
+      code: apt-get install vim -y
+    - internal/docker-push:
+      username: $DOCKER_USERNAME
+      password: $DOCKER_PASSWORD
+      repository: lits/lavo-debug
+      cmd: /bin/sh -c "bash"
+      tag: $WERCKER_GIT_BRANCH
+
+deploy:
+  steps:
+    - script:
+      name: assets precompile
+      code: RAILS_ENV=staging bundle exec rake assets:precompile
+    - script:
+      name: remove rvm file
+      code: rm -f .ruby-gemset && rm -f .ruby-version
+    - wouter/setup-ssh:
+      private-key: $DO_SSH_PRIVATE
+      host: $DO_HOST_IP
+      username: $DO_USER
+    - wouter/script-ssh:
+      name: app down
+      code: cd $DO_DOCKER_DIR ; docker-compose stop ; docker-compose rm -f
+    - anka-sirota/rsync-deploy:
+      host: $DO_HOST_IP
+      directory: $DO_TARGET_DIR
+      sshkey: $WERCKER_SETUP_SSH_ID_FILE
+      user: $DO_USER
+    - wouter/script-ssh:
+      name: start docker containers
+      code: cd $DO_DOCKER_DIR ; docker-compose up -d
+
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        username: wercker
+
+deploy-production:
+  steps:
+    - script:
+      name: assets precompile
+      code: RAILS_ENV=production bundle exec rake assets:precompile
+    - script:
+      name: remove rvm file
+      code: rm -f .ruby-gemset && rm -f .ruby-version ; rm -rf public/uploads
+    - wouter/setup-ssh:
+      private-key: $PROD_SSH_PRIVATE
+      host: $PROD_HOST_IP
+      username: $PROD_USER
+    - wouter/script-ssh:
+      name: stop app
+      code: cd $PROD_DOCKER_DIR ; docker-compose stop ; docker-compose rm -f
+    - anka-sirota/rsync-deploy:
+      host: $PROD_HOST_IP
+      directory: $PROD_TARGET_DIR
+      sshkey: $WERCKER_SETUP_SSH_ID_FILE
+      user: $PROD_USER
+    - wouter/script-ssh:
+      name: start app
+      code: cd $DO_DOCKER_DIR ; docker-compose up -d
+
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        username: wercker

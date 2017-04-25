@@ -1,0 +1,32 @@
+en:
+  activerecord:
+    errors:
+      models:
+        promotion/rules/order_total:
+          attributes:
+            base:
+              promotion_contains_this_rule_type: Promotion already contains this rule type
+  activerecord:
+    errors:
+      models:
+        promotion/rules/order_item_discount:
+          attributes:
+            base:
+              promotion_contains_this_rule_type: Only one combination of Item, Item Type, Service can be added as rule to a promotion
+
+  successfully_created: 'Promotion Rule was successfully created'
+  successfully_removed: 'Promotion Rule was successfully removed'
+
+  preferred_amount_min: Must be greater than 0 and less than amount max
+  preferred_amount_min: Must be greater than amount min
+
+  eligibility_errors:
+    messages:
+      total_more_than: This rule can't be applied to orders higher than %{amount}.
+      total_more_than_or_equal: This rule can't be applied to orders higher than or equal to %{amount}.
+      total_less_than: This rule can't be applied to orders less than %{amount}.
+      total_less_than_or_equal: This rule can't be applied to orders less than or equal to %{amount}
+      promotion_not_found: 'Promotion not found'
+      invalid_promotion_rule: 'Validation failed'
+
+  promotion_not_found: Promotion not found

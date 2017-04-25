@@ -1,0 +1,17 @@
+---
+:pidfile: /tmp/sidekiq.pid
+:logfile: log/sidekiq.log
+:concurrency:  2
+development:
+  :verbose: true
+test:
+  :verbose: true
+staging:
+  :verbose: true
+production:
+  :verbose: true
+:queues:
+  - [critical, 3]
+  - [default, 2]
+  - [mailers, 2]
+  - [low, 1]

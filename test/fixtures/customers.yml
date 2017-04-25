@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: my_email@gmail.com
+  #123456
+  password_digest: $2a$04$JZv5ZIttZQHFD2ThrRf3FuYFN2WDFEiXV31fmBUXpFzNzGSoi.J.i
+
+two:
+  email: my_email2@gmail.com
+  password_digest: $2a$04$JZv5ZIttZQHFD2ThrRf3FuYFN2WDFEiXV31fmBUXpFzNzGSoi.J.i
+  reset_digest:

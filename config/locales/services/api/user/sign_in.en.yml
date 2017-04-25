@@ -1,0 +1,22 @@
+en:
+  bad_credentials: "Invalid login credentials"
+  activerecord:
+    errors:
+      models:
+        customer:
+          attributes:
+            base:
+              not_activated: "User isn't activated. Please check your email and tap at activation link to activate this user."
+              bad_credentials: "Invalid login credentials"
+        vendor:
+          attributes:
+            base:
+              not_activated: "User isn't activated."
+              bad_credentials: "Invalid login credentials"
+  activemodel:
+    errors:
+      models:
+        resource_with_errors:
+          attributes:
+            base:
+              bad_credentials: "Invalid login credentials"

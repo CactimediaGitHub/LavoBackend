@@ -1,0 +1,13 @@
+en:
+  helpers:
+    label:
+      inventory_item:
+        price: "Price"
+      order:
+        total: 'Total'
+      payment:
+        order_total: 'Order Total'
+        paid_amount: 'Paid Amount'
+      promotion_rule:
+        preferred_amount_min: "Order's total min"
+        preferred_amount_max: "Order's total max"

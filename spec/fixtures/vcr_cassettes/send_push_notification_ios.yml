@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://fcm.googleapis.com/fcm/send
+    body:
+      encoding: UTF-8
+      string: '{"registration_ids":["euXYzS_EBp4:APA91bHRqbrQF80pYB7sATY_3Wku2vbW2uZ8ab6CRSCovvZ6BiA8edxc-KIZdTOsxm0VxN8m8OYKQthGMX8xNzJpmE9rQh4jElzu7ZT_m-m7_jloT-S1FAQiWCFa411fG7OMm79nq7c5"],"notification":{"body":"My
+        super cool ios message","title":"My super cool ios message"},"data":{"message":"My
+        super cool ios message"},"collapse_key":"lavo_laundry"}'
+    headers:
+      Authorization:
+      - key=AIzaSyAHRI1XZnOe6u7Wc7AFZbJOcjPAFjVvfUw
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 22 Nov 2016 09:33:38 GMT
+      Expires:
+      - Tue, 22 Nov 2016 09:33:38 GMT
+      Cache-Control:
+      - private, max-age=0
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="36,35,34"
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"multicast_id":8105566310417118387,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1479807218679209%7071f1797071f179"}]}'
+    http_version: 
+  recorded_at: Tue, 22 Nov 2016 09:33:38 GMT
+recorded_with: VCR 3.0.3

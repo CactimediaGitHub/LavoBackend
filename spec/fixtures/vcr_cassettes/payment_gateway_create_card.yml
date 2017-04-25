@@ -1,0 +1,194 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sbcheckout.payfort.com/FortAPI/paymentPage
+    body:
+      encoding: UTF-8
+      string: service_command=TOKENIZATION&merchant_identifier=lBmxhStQ&access_code=B7a8a41jtuK8YBi3dSnA&merchant_reference=8b9df54b1f&language=en&return_url=https%3A%2F%2Fapi.lavo.devlits.com%2Fcustomers%2F2%2Fcards&merchant_extra=BAh7BjoJbmlja0kiFDMtRCBzZWN1cmUgY2FyZAY6BkVU&signature=E84CED7A361E629F4FDD996B4332D1676DB659ED36802B3B5F65A6AD435BAB95&remember_me=YES&card_number=4557012345678902&expiry_date=1705&card_security_code=123&card_holder_name=Steve+Smith
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, max-age=0, private
+      Date:
+      - Wed, 09 Nov 2016 08:15:56 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Location:
+      - https://sbcheckout.PayFort.com/FortAPI/tokenization/OPC?data=JTdCJTIyYWNjZXNzX2NvZGUlMjIlM0ElNUIlMjJCN2E4YTQxanR1SzhZQmkzZFNuQSUyMiU1RCUyQyUyMmNhcmRfbnVtYmVyJTIyJTNBJTVCJTIyNDU1NzAxMjM0NTY3ODkwMiUyMiU1RCUyQyUyMmNhcmRfc2VjdXJpdHlfY29kZSUyMiUzQSU1QiUyMjEyMyUyMiU1RCUyQyUyMm1lcmNoYW50X2V4dHJhJTIyJTNBJTVCJTIyQkFoN0Jqb0pibWxqYTBraUZETXRSQ0J6WldOMWNtVWdZMkZ5WkFZNkJrVlUlMjIlNUQlMkMlMjJzZXJ2aWNlX2NvbW1hbmQlMjIlM0ElNUIlMjJUT0tFTklaQVRJT04lMjIlNUQlMkMlMjJyZXR1cm5fdXJsJTIyJTNBJTVCJTIyaHR0cHMlM0ElMkYlMkZhcGkubGF2by5kZXZsaXRzLmNvbSUyRmN1c3RvbWVycyUyRjIlMkZjYXJkcyUyMiU1RCUyQyUyMm1lcmNoYW50X3JlZmVyZW5jZSUyMiUzQSU1QiUyMjhiOWRmNTRiMWYlMjIlNUQlMkMlMjJjYXJkX2hvbGRlcl9uYW1lJTIyJTNBJTVCJTIyU3RldmUrU21pdGglMjIlNUQlMkMlMjJyZW1lbWJlcl9tZSUyMiUzQSU1QiUyMllFUyUyMiU1RCUyQyUyMmxhbmd1YWdlJTIyJTNBJTVCJTIyZW4lMjIlNUQlMkMlMjJleHBpcnlfZGF0ZSUyMiUzQSU1QiUyMjE3MDUlMjIlNUQlMkMlMjJtZXJjaGFudF9pZGVudGlmaWVyJTIyJTNBJTVCJTIybEJteGhTdFElMjIlNUQlMkMlMjJzaWduYXR1cmUlMjIlM0ElNUIlMjJFODRDRUQ3QTM2MUU2MjlGNEZERDk5NkI0MzMyRDE2NzZEQjY1OUVEMzY4MDJCM0I1RjY1QTZBRDQzNUJBQjk1JTIyJTVEJTdE
+      P3p:
+      - CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+      Pragma:
+      - no-cache
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - SESSION=5b6c75f7-b246-4505-bbe6-9505975c236d; Path=/FortAPI/; Secure; HttpOnly
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 09 Nov 2016 08:13:12 GMT
+- request:
+    method: get
+    uri: https://sbcheckout.payfort.com/FortAPI/tokenization/OPC?data=JTdCJTIyYWNjZXNzX2NvZGUlMjIlM0ElNUIlMjJCN2E4YTQxanR1SzhZQmkzZFNuQSUyMiU1RCUyQyUyMmNhcmRfbnVtYmVyJTIyJTNBJTVCJTIyNDU1NzAxMjM0NTY3ODkwMiUyMiU1RCUyQyUyMmNhcmRfc2VjdXJpdHlfY29kZSUyMiUzQSU1QiUyMjEyMyUyMiU1RCUyQyUyMm1lcmNoYW50X2V4dHJhJTIyJTNBJTVCJTIyQkFoN0Jqb0pibWxqYTBraUZETXRSQ0J6WldOMWNtVWdZMkZ5WkFZNkJrVlUlMjIlNUQlMkMlMjJzZXJ2aWNlX2NvbW1hbmQlMjIlM0ElNUIlMjJUT0tFTklaQVRJT04lMjIlNUQlMkMlMjJyZXR1cm5fdXJsJTIyJTNBJTVCJTIyaHR0cHMlM0ElMkYlMkZhcGkubGF2by5kZXZsaXRzLmNvbSUyRmN1c3RvbWVycyUyRjIlMkZjYXJkcyUyMiU1RCUyQyUyMm1lcmNoYW50X3JlZmVyZW5jZSUyMiUzQSU1QiUyMjhiOWRmNTRiMWYlMjIlNUQlMkMlMjJjYXJkX2hvbGRlcl9uYW1lJTIyJTNBJTVCJTIyU3RldmUrU21pdGglMjIlNUQlMkMlMjJyZW1lbWJlcl9tZSUyMiUzQSU1QiUyMllFUyUyMiU1RCUyQyUyMmxhbmd1YWdlJTIyJTNBJTVCJTIyZW4lMjIlNUQlMkMlMjJleHBpcnlfZGF0ZSUyMiUzQSU1QiUyMjE3MDUlMjIlNUQlMkMlMjJtZXJjaGFudF9pZGVudGlmaWVyJTIyJTNBJTVCJTIybEJteGhTdFElMjIlNUQlMkMlMjJzaWduYXR1cmUlMjIlM0ElNUIlMjJFODRDRUQ3QTM2MUU2MjlGNEZERDk5NkI0MzMyRDE2NzZEQjY1OUVEMzY4MDJCM0I1RjY1QTZBRDQzNUJBQjk1JTIyJTVEJTdE
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, max-age=0, private
+      Date:
+      - Wed, 09 Nov 2016 08:15:57 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Location:
+      - https://sbcheckout.PayFort.com/FortAPI/tokenization/backToMerchant?data=JTdCJTIyRU5DX0NWViUyMiUzQSUyMm1JSk9OdHRtQkpMUEJHNlNqSnpnZHclNUN1MDAzZCU1Q3UwMDNkJTIyJTJDJTIyY2FyZF9zZWN1cml0eV9jb2RlJTIyJTNBJTIyMTIzJTIyJTJDJTIyY2FyZF9udW1iZXIlMjIlM0ElMjI0NTU3MDEyMzQ1Njc4OTAyJTIyJTJDJTIyY3VzdG9tZXJfaXAlMjIlM0ElMjIxMjguMC4xNzEuMTAxJTIyJTJDJTIybWVyY2hhbnRfZXh0cmElMjIlM0ElMjJCQWg3QmpvSmJtbGphMGtpRkRNdFJDQnpaV04xY21VZ1kyRnlaQVk2QmtWVSUyMiUyQyUyMmNhcmRfaG9sZGVyX25hbWUlMjIlM0ElMjJTdGV2ZStTbWl0aCUyMiUyQyUyMnJlbWVtYmVyX21lJTIyJTNBJTIyWUVTJTIyJTJDJTIycmVzcG9uc2VfbWVzc2FnZSUyMiUzQSUyMlN1Y2Nlc3MlMjIlMkMlMjJtZXJjaGFudElkJTIyJTNBJTIyMTQzOSUyMiUyQyUyMnJlc3BvbnNlTXNnJTIyJTNBJTIyU3VjY2VzcyUyMiUyQyUyMm1lcmNoYW50X2lkZW50aWZpZXIlMjIlM0ElMjJsQm14aFN0USUyMiUyQyUyMnNpZ25hdHVyZSUyMiUzQSUyMkU4NENFRDdBMzYxRTYyOUY0RkREOTk2QjQzMzJEMTY3NkRCNjU5RUQzNjgwMkIzQjVGNjVBNkFENDM1QkFCOTUlMjIlMkMlMjJyZXNwb25zZUluZGljYXRvciUyMiUzQSUyMjElMjIlMkMlMjJhY2Nlc3NfY29kZSUyMiUzQSUyMkI3YThhNDFqdHVLOFlCaTNkU25BJTIyJTJDJTIycmVzcG9uc2VDb2RlJTIyJTNBJTIyMTgwMDAlMjIlMkMlMjJzdGF0dXMlMjIlM0ElMjIxOCUyMiUyQyUyMm9yZGVyRGF0ZSUyMiUzQSUyMldlZCtOb3YrMDkrMDglM0ExNSUzQTU4K0dNVCsyMDE2JTIyJTJDJTIycmVzcG9uc2VfY29kZSUyMiUzQSUyMjE4MDAwJTIyJTJDJTIyY29tbWFuZEx2bCUyMiUzQSUyMlNFUlZJQ0UlMjIlMkMlMjJzZXJ2aWNlX2NvbW1hbmQlMjIlM0ElMjJUT0tFTklaQVRJT04lMjIlMkMlMjJtZXJCYWNrUGFyYW1zJTIyJTNBJTIyJTdCJTVDJTIyYWNjZXNzX2NvZGUlNUMlMjIlM0ElNUMlMjJCN2E4YTQxanR1SzhZQmkzZFNuQSU1QyUyMiUyQyU1QyUyMmNhcmRfbnVtYmVyJTVDJTIyJTNBJTVDJTIyNDU1NzAxKioqKioqODkwMiU1QyUyMiUyQyU1QyUyMnN0YXR1cyU1QyUyMiUzQSU1QyUyMjE4JTVDJTIyJTJDJTVDJTIycmVzcG9uc2VfY29kZSU1QyUyMiUzQSU1QyUyMjE4MDAwJTVDJTIyJTJDJTVDJTIydG9rZW5fbmFtZSU1QyUyMiUzQSU1QyUyMjQwQzhEOUUzMTQ4OTBBRUJFMDUzMzIxRTMyMEE2NTk1JTVDJTIyJTJDJTVDJTIybWVyY2hhbnRfZXh0cmElNUMlMjIlM0ElNUMlMjJCQWg3QmpvSmJtbGphMGtpRkRNdFJDQnpaV04xY21VZ1kyRnlaQVk2QmtWVSU1QyUyMiUyQyU1QyUyMmNhcmRfYmluJTVDJTIyJTNBJTVDJTIyNDU1NzAxJTVDJTIyJTJDJTVDJTIyc2VydmljZV9jb21tYW5kJTVDJTIyJTNBJTVDJTIyVE9LRU5JWkFUSU9OJTVDJTIyJTJDJTVDJTIycmV0dXJuX3VybCU1QyUyMiUzQSU1QyUyMmh0dHBzJTNBJTJGJTJGYXBpLmxhdm8uZGV2bGl0cy5jb20lMkZjdXN0b21lcnMlMkYyJTJGY2FyZHMlNUMlMjIlMkMlNUMlMjJtZXJjaGFudF9yZWZlcmVuY2UlNUMlMjIlM0ElNUMlMjI4YjlkZjU0YjFmJTVDJTIyJTJDJTVDJTIyY2FyZF9ob2xkZXJfbmFtZSU1QyUyMiUzQSU1QyUyMlN0ZXZlK1NtaXRoJTVDJTIyJTJDJTVDJTIycmVtZW1iZXJfbWUlNUMlMjIlM0ElNUMlMjJZRVMlNUMlMjIlMkMlNUMlMjJyZXNwb25zZV9tZXNzYWdlJTVDJTIyJTNBJTVDJTIyU3VjY2VzcyU1QyUyMiUyQyU1QyUyMmxhbmd1YWdlJTVDJTIyJTNBJTVDJTIyZW4lNUMlMjIlMkMlNUMlMjJleHBpcnlfZGF0ZSU1QyUyMiUzQSU1QyUyMjE3MDUlNUMlMjIlMkMlNUMlMjJtZXJjaGFudF9pZGVudGlmaWVyJTVDJTIyJTNBJTVDJTIybEJteGhTdFElNUMlMjIlMkMlNUMlMjJzaWduYXR1cmUlNUMlMjIlM0ElNUMlMjI2YzBlNGZkMDM5OGZlMzgzNTIzNmUyYzc4YjlkYWNmN2U0YzM0ODkzZDM3YjBmN2Q4OWM0MDk2Zjk1MzgyZTE2JTVDJTIyJTdEJTIyJTJDJTIycmV0dXJuX3VybCUyMiUzQSUyMmh0dHBzJTNBJTJGJTJGYXBpLmxhdm8uZGV2bGl0cy5jb20lMkZjdXN0b21lcnMlMkYyJTJGY2FyZHMlMjIlMkMlMjJtZXJjaGFudF9yZWZlcmVuY2UlMjIlM0ElMjI4YjlkZjU0YjFmJTIyJTJDJTIybGFuZ3VhZ2UlMjIlM0ElMjJlbiUyMiUyQyUyMmV4cGlyeV9kYXRlJTIyJTNBJTIyMTcwNSUyMiU3RA==
+      P3p:
+      - CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+      Pragma:
+      - no-cache
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - SESSION=63f5a4ef-9cce-43d3-aa35-9dc59e0490c4; Path=/FortAPI/; Secure; HttpOnly
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 09 Nov 2016 08:13:13 GMT
+- request:
+    method: get
+    uri: https://sbcheckout.payfort.com/FortAPI/tokenization/backToMerchant?data=JTdCJTIyRU5DX0NWViUyMiUzQSUyMm1JSk9OdHRtQkpMUEJHNlNqSnpnZHclNUN1MDAzZCU1Q3UwMDNkJTIyJTJDJTIyY2FyZF9zZWN1cml0eV9jb2RlJTIyJTNBJTIyMTIzJTIyJTJDJTIyY2FyZF9udW1iZXIlMjIlM0ElMjI0NTU3MDEyMzQ1Njc4OTAyJTIyJTJDJTIyY3VzdG9tZXJfaXAlMjIlM0ElMjIxMjguMC4xNzEuMTAxJTIyJTJDJTIybWVyY2hhbnRfZXh0cmElMjIlM0ElMjJCQWg3QmpvSmJtbGphMGtpRkRNdFJDQnpaV04xY21VZ1kyRnlaQVk2QmtWVSUyMiUyQyUyMmNhcmRfaG9sZGVyX25hbWUlMjIlM0ElMjJTdGV2ZStTbWl0aCUyMiUyQyUyMnJlbWVtYmVyX21lJTIyJTNBJTIyWUVTJTIyJTJDJTIycmVzcG9uc2VfbWVzc2FnZSUyMiUzQSUyMlN1Y2Nlc3MlMjIlMkMlMjJtZXJjaGFudElkJTIyJTNBJTIyMTQzOSUyMiUyQyUyMnJlc3BvbnNlTXNnJTIyJTNBJTIyU3VjY2VzcyUyMiUyQyUyMm1lcmNoYW50X2lkZW50aWZpZXIlMjIlM0ElMjJsQm14aFN0USUyMiUyQyUyMnNpZ25hdHVyZSUyMiUzQSUyMkU4NENFRDdBMzYxRTYyOUY0RkREOTk2QjQzMzJEMTY3NkRCNjU5RUQzNjgwMkIzQjVGNjVBNkFENDM1QkFCOTUlMjIlMkMlMjJyZXNwb25zZUluZGljYXRvciUyMiUzQSUyMjElMjIlMkMlMjJhY2Nlc3NfY29kZSUyMiUzQSUyMkI3YThhNDFqdHVLOFlCaTNkU25BJTIyJTJDJTIycmVzcG9uc2VDb2RlJTIyJTNBJTIyMTgwMDAlMjIlMkMlMjJzdGF0dXMlMjIlM0ElMjIxOCUyMiUyQyUyMm9yZGVyRGF0ZSUyMiUzQSUyMldlZCtOb3YrMDkrMDglM0ExNSUzQTU4K0dNVCsyMDE2JTIyJTJDJTIycmVzcG9uc2VfY29kZSUyMiUzQSUyMjE4MDAwJTIyJTJDJTIyY29tbWFuZEx2bCUyMiUzQSUyMlNFUlZJQ0UlMjIlMkMlMjJzZXJ2aWNlX2NvbW1hbmQlMjIlM0ElMjJUT0tFTklaQVRJT04lMjIlMkMlMjJtZXJCYWNrUGFyYW1zJTIyJTNBJTIyJTdCJTVDJTIyYWNjZXNzX2NvZGUlNUMlMjIlM0ElNUMlMjJCN2E4YTQxanR1SzhZQmkzZFNuQSU1QyUyMiUyQyU1QyUyMmNhcmRfbnVtYmVyJTVDJTIyJTNBJTVDJTIyNDU1NzAxKioqKioqODkwMiU1QyUyMiUyQyU1QyUyMnN0YXR1cyU1QyUyMiUzQSU1QyUyMjE4JTVDJTIyJTJDJTVDJTIycmVzcG9uc2VfY29kZSU1QyUyMiUzQSU1QyUyMjE4MDAwJTVDJTIyJTJDJTVDJTIydG9rZW5fbmFtZSU1QyUyMiUzQSU1QyUyMjQwQzhEOUUzMTQ4OTBBRUJFMDUzMzIxRTMyMEE2NTk1JTVDJTIyJTJDJTVDJTIybWVyY2hhbnRfZXh0cmElNUMlMjIlM0ElNUMlMjJCQWg3QmpvSmJtbGphMGtpRkRNdFJDQnpaV04xY21VZ1kyRnlaQVk2QmtWVSU1QyUyMiUyQyU1QyUyMmNhcmRfYmluJTVDJTIyJTNBJTVDJTIyNDU1NzAxJTVDJTIyJTJDJTVDJTIyc2VydmljZV9jb21tYW5kJTVDJTIyJTNBJTVDJTIyVE9LRU5JWkFUSU9OJTVDJTIyJTJDJTVDJTIycmV0dXJuX3VybCU1QyUyMiUzQSU1QyUyMmh0dHBzJTNBJTJGJTJGYXBpLmxhdm8uZGV2bGl0cy5jb20lMkZjdXN0b21lcnMlMkYyJTJGY2FyZHMlNUMlMjIlMkMlNUMlMjJtZXJjaGFudF9yZWZlcmVuY2UlNUMlMjIlM0ElNUMlMjI4YjlkZjU0YjFmJTVDJTIyJTJDJTVDJTIyY2FyZF9ob2xkZXJfbmFtZSU1QyUyMiUzQSU1QyUyMlN0ZXZlK1NtaXRoJTVDJTIyJTJDJTVDJTIycmVtZW1iZXJfbWUlNUMlMjIlM0ElNUMlMjJZRVMlNUMlMjIlMkMlNUMlMjJyZXNwb25zZV9tZXNzYWdlJTVDJTIyJTNBJTVDJTIyU3VjY2VzcyU1QyUyMiUyQyU1QyUyMmxhbmd1YWdlJTVDJTIyJTNBJTVDJTIyZW4lNUMlMjIlMkMlNUMlMjJleHBpcnlfZGF0ZSU1QyUyMiUzQSU1QyUyMjE3MDUlNUMlMjIlMkMlNUMlMjJtZXJjaGFudF9pZGVudGlmaWVyJTVDJTIyJTNBJTVDJTIybEJteGhTdFElNUMlMjIlMkMlNUMlMjJzaWduYXR1cmUlNUMlMjIlM0ElNUMlMjI2YzBlNGZkMDM5OGZlMzgzNTIzNmUyYzc4YjlkYWNmN2U0YzM0ODkzZDM3YjBmN2Q4OWM0MDk2Zjk1MzgyZTE2JTVDJTIyJTdEJTIyJTJDJTIycmV0dXJuX3VybCUyMiUzQSUyMmh0dHBzJTNBJTJGJTJGYXBpLmxhdm8uZGV2bGl0cy5jb20lMkZjdXN0b21lcnMlMkYyJTJGY2FyZHMlMjIlMkMlMjJtZXJjaGFudF9yZWZlcmVuY2UlMjIlM0ElMjI4YjlkZjU0YjFmJTIyJTJDJTIybGFuZ3VhZ2UlMjIlM0ElMjJlbiUyMiUyQyUyMmV4cGlyeV9kYXRlJTIyJTNBJTIyMTcwNSUyMiU3RA==
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, max-age=0, private
+      Date:
+      - Wed, 09 Nov 2016 08:15:59 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Location:
+      - https://api.lavo.devlits.com/customers/2/cards?access_code=B7a8a41jtuK8YBi3dSnA&card_number=455701******8902&status=18&response_code=18000&token_name=40C8D9E314890AEBE053321E320A6595&merchant_extra=BAh7BjoJbmlja0kiFDMtRCBzZWN1cmUgY2FyZAY6BkVU&card_bin=455701&service_command=TOKENIZATION&return_url=https%3A%2F%2Fapi.lavo.devlits.com%2Fcustomers%2F2%2Fcards&merchant_reference=8b9df54b1f&card_holder_name=Steve+Smith&remember_me=YES&response_message=Success&language=en&expiry_date=1705&merchant_identifier=lBmxhStQ&signature=6c0e4fd0398fe3835236e2c78b9dacf7e4c34893d37b0f7d89c4096f95382e16
+      P3p:
+      - CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+      Pragma:
+      - no-cache
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - SESSION=""; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/FortAPI/; Secure;
+        HttpOnly
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 09 Nov 2016 08:13:14 GMT
+- request:
+    method: get
+    uri: https://api.lavo.devlits.com/customers/2/cards?access_code=B7a8a41jtuK8YBi3dSnA&card_bin=455701&card_holder_name=Steve%20Smith&card_number=455701******8902&expiry_date=1705&language=en&merchant_extra=BAh7BjoJbmlja0kiFDMtRCBzZWN1cmUgY2FyZAY6BkVU&merchant_identifier=lBmxhStQ&merchant_reference=8b9df54b1f&remember_me=YES&response_code=18000&response_message=Success&return_url=https://api.lavo.devlits.com/customers/2/cards&service_command=TOKENIZATION&signature=6c0e4fd0398fe3835236e2c78b9dacf7e4c34893d37b0f7d89c4096f95382e16&status=18&token_name=40C8D9E314890AEBE053321E320A6595
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Server:
+      - nginx/1.9.15
+      Date:
+      - Wed, 09 Nov 2016 08:13:14 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 5a6177ff-24b5-41b8-873e-c2a463faad6b
+      X-Runtime:
+      - '0.083377'
+      Vary:
+      - Origin
+      X-Rack-Cors:
+      - preflight-hit; no-origin
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 09 Nov 2016 08:13:14 GMT
+recorded_with: VCR 3.0.3

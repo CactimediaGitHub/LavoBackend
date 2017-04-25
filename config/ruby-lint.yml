@@ -1,0 +1,16 @@
+---
+presenter: syntastic
+
+directories:
+  - app
+  - config
+  - lib
+  - spec
+
+ignore_paths:
+  - spec/factories
+
+analysis_classes:
+  - pedantics
+  - shadowing_variables
+  - useless_equality_checks

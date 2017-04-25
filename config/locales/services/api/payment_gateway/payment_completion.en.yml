@@ -1,0 +1,8 @@
+en:
+  activemodel:
+    models:
+      api/v1/payment_gateway:
+        attributes:
+          lavo_message:
+            success: 'Your payment successfully completed'
+            failure: 'Your payment failed'
