@@ -29,7 +29,7 @@ gem 'rack-cors'
 gem 'rails', '5.0.1'
 gem 'sidekiq'
 gem 'statesman'
-# gem 'unicorn'
+gem 'unicorn'
 
 gem 'sass-rails'
 gem 'uglifier'
