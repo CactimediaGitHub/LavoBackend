@@ -5,7 +5,9 @@ module UserRelated
 
   included do
     # move to initializer
-    PHONE_FORMAT_REGEXP = /\A\+?\d+\z/.freeze
+    PHONE_FORMAT_REGEXP = /\A\d+\z/.freeze
+
+    PREFIX_PHONE_FORMAT_REGEXP = /\A\+?\d+\z/.freeze
 
     has_one  :http_token, as: :tokenable, dependent: :delete
 

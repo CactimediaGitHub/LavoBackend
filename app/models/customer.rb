@@ -36,7 +36,7 @@ class Customer < ApplicationRecord
 
   def self.permitted_attributes
     [:email, :password, :password_confirmation, :avatar,
-     :name, :surname, :phone]
+     :name, :surname, :phone, :prefix_phone]
   end
 
   def self.to_xlsx(collection)
