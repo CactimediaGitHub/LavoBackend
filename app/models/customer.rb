@@ -17,6 +17,10 @@ class Customer < ApplicationRecord
             length: {in: 7..11, allow_blank: true},
             format: { with: PHONE_FORMAT_REGEXP, allow_blank: true }
 
+  validates :prefix_phone,
+            length: {in: 3..3, allow_blank: true},
+            format: { with: PREFIX_PHONE_FORMAT_REGEXP, allow_blank: true }
+
   pg_search_scope(:search,
     against: [:email, :name, :surname, :phone],
     associated_against: {
