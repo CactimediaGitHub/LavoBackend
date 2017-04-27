@@ -18,6 +18,7 @@ class Customer < ApplicationRecord
             format: { with: PHONE_FORMAT_REGEXP, allow_blank: true }
 
   validates :prefix_phone,
+            inclusion: { in: ['050', '052', '055', '056'], message: 'Prefix phone should be in 050, 052, 055, 056.' },
             length: {in: 3..3, allow_blank: true},
             format: { with: PREFIX_PHONE_FORMAT_REGEXP, allow_blank: true }
 

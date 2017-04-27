@@ -12,6 +12,7 @@ class CustomerDashboard < Administrate::BaseDashboard
     name: Field::String.with_options(searchable: true),
     surname: Field::String.with_options(searchable: true),
     addresses: Field::HasMany,
+    prefix_phone: Field::String.with_options(searchable: true),
     phone: Field::String.with_options(searchable: true),
     activated: Field::Boolean.with_options(searchable: true, filterable: true, filterable_options: [true, false]),
     http_token: Field::HasOne,
@@ -41,6 +42,7 @@ class CustomerDashboard < Administrate::BaseDashboard
     name
     surname
     addresses
+    prefix_phone
     phone
     orders
     credits_amount
@@ -57,6 +59,7 @@ class CustomerDashboard < Administrate::BaseDashboard
     name
     surname
     addresses
+    prefix_phone
     phone
     orders
     credits_amount
@@ -72,6 +75,7 @@ class CustomerDashboard < Administrate::BaseDashboard
     email
     name
     surname
+    prefix_phone
     phone
     activated
     password
