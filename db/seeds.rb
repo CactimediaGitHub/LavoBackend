@@ -32,7 +32,7 @@ v1 = Vendor.create!(name: 'Champion Cleaners', activated: true, lat: coord80[0],
 c1 = Customer.create!(phone: '1234567', prefix_phone: '052', name: 'John', surname: 'Doe', email: 'customer-1@example.com', password: '123456', password_confirmation: '123456', activated: true)
 c2 = Customer.create!(phone: '1234567', prefix_phone: '052', name: 'Syber', surname: 'Junkie', email: 'customer-2@example.com', password: '123456', password_confirmation: '123456', activated: true)
 c3 = Customer.create!(phone: '1234567', prefix_phone: '052', name: 'Pjotr', surname: 'Ferdyschenko', email: 'customer-3@example.com', password: '123456', password_confirmation: '123456', activated: true)
-c4 = Customer.create!(phone: '1234567', prefix_phone: '052', name: 'Eugene', surname: 'Potapenko', email: 'eugene.potapenko@litslink.com', password: '123456', password_confirmation: '123456', activated: true)
+c4 = Customer.create!(phone: '1234567', prefix_phone: '052', name: 'Eugene', surname: 'Potapenko', email: 'eugene.potapenko@lavohost.com', password: '123456', password_confirmation: '123456', activated: true)
 c5 = Customer.create!(phone: '1234567', prefix_phone: '052', name: 'Nadiia', surname: 'Antonova', email: 'na@na.com', password: '1111', password_confirmation: '1111', activated: true)
 
 customer1_address1 = Address.create!(customer: c1, address1: 'Al Hamriya 7', address2: 'Near Dubai Hospital 4', city: 'Dubai', country: 'AE', human_name: 'My home address 1', nearest_landmark: '123456')
