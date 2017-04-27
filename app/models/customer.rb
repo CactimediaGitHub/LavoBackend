@@ -14,7 +14,7 @@ class Customer < ApplicationRecord
   has_many :transactions, foreign_key: :customer_id, class_name: 'Payment'
 
   validates :phone,
-            length: {in: 7..11, allow_blank: true},
+            length: {in: 7..7, allow_blank: true},
             format: { with: PHONE_FORMAT_REGEXP, allow_blank: true }
 
   validates :prefix_phone,
