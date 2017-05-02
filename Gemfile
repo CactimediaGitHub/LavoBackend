@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'dotenv-rails', require: 'dotenv/rails-now', groups: [:development, :test, :staging]
+
 gem 'activemerchant', github: 'mitjok/active_merchant_payfort', ref: 'a24979a'
 gem 'active_model_serializers', '~> 0.10.2'
 gem 'administrate', github: 'mitjok/administrate', branch: 'rails5', ref: 'f510d17'
