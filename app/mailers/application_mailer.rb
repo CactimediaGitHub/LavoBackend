@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'lavo@cactimedia.biz'
   layout 'mailer'
   before_action :initialize_defaults
 

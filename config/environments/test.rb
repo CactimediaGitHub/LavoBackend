@@ -32,18 +32,17 @@ Rails.application.configure do
   config.active_job.queue_adapter     = :inline
   config.active_job.logger = ActiveSupport::TaggedLogging.new(Logger.new(Rails.root.join('log/active_job.log')))
 
-  config.action_mailer.delivery_method = :test
   config.action_mailer.perform_deliveries = false
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: ENV['BASE_API_HOST'] }
   # config.action_mailer.perform_caching = false
-  # config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :sendmail
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'lavohost.com',
-    user_name:            'no_reply@lavohost.com',
-    password:             'sPs12345',
+    address:              'mail.cactimedia.biz',
+    port:                 465,
+    domain:               'cactimedia.biz',
+    user_name:            'lavo@cactimedia.biz',
+    password:             'lavo123',
     authentication:       'plain',
     enable_starttls_auto: true  }
 
