@@ -80,7 +80,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'mail.cactimedia.biz',
     port:                 465,
-    domain:               'lavohost.com',
+    domain:               'cactimedia.biz',
     user_name:            'lavo@cactimedia.biz',
     password:             'lavo123',
     authentication:       'plain',
