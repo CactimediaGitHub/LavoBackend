@@ -60,6 +60,6 @@ class ShippingMethodDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(shipping_method)
-    shipping_method.shipping_method
+    shipping_method.shipping_method_name
   end
 end
