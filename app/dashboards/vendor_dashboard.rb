@@ -37,6 +37,7 @@ class VendorDashboard < Administrate::BaseDashboard
     lon: Field::Number.with_options(decimals: 6),
     cached_total_reviews: Field::Number,
     commission: Field::Number,
+    flat_rate: Field::Number,
     balance: Field::AmountFormat,
     images: Field::NestedImageGalleryField.with_options(searchable: false),
     transactions: TransactionSumField
@@ -58,6 +59,7 @@ class VendorDashboard < Administrate::BaseDashboard
     cached_total_reviews
     transactions
     commission
+    flat_rate
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -68,6 +70,7 @@ class VendorDashboard < Administrate::BaseDashboard
     id
     name
     commission
+    flat_rate
     balance
     payouts
     inventory_items
@@ -96,6 +99,7 @@ class VendorDashboard < Administrate::BaseDashboard
     :email,
     :name,
     :commission,
+    :flat_rate,
     :phone,
     :address,
     :lat,
