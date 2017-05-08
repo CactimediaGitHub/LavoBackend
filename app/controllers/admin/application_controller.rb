@@ -8,8 +8,8 @@ module Admin
   class ApplicationController < Administrate::ApplicationController
     
     http_basic_authenticate_with(
-      name: ENV.fetch('ADMIN_NAME'),
-      password: ENV.fetch('ADMIN_PASSWORD')
+      name: 'lavo',
+      password: 'lavoAdmin@123'
     )
 
     def promotion_type_helper(resource)
