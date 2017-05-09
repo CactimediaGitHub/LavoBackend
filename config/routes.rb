@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         resources :images, only: %i(create destroy)
       end
       o.resources :customers
+      o.resources :holidays
       o.resources :orders
       o.resources :order_items
       o.resources :items

@@ -29,6 +29,7 @@ class Vendor < ApplicationRecord
   has_many :payouts
   has_many :transactions, foreign_key: :vendor_id, class_name: 'Payment'
   has_many :schedules
+  has_many :holidays
 
   has_many :vendor_promotions
   has_many :promotions, through: :vendor_promotions, class_name: 'Promotion'
