@@ -68,6 +68,8 @@ to display a collection of resources in an HTML table.
               <%= vendor_name %>
             <% elsif attribute.attribute.eql?(:created_at) || attribute.attribute.eql?(:updated_at) %>
               <%= "#{attribute.data.strftime('%B %d, %Y')}" %>
+            <% elsif attribute.attribute.eql?(:starts_at) || attribute.attribute.eql?(:expires_at) %>
+              <%= "#{attribute.data.strftime('%B %d, %Y %I:%M %p')}" %>
             <% else %>
               <%= render_field attribute %>
             <% end %>
