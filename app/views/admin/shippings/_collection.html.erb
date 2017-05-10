@@ -60,7 +60,11 @@ to display a collection of resources in an HTML table.
           >
         <% collection_presenter.attributes_for(resource).each do |attribute| %>
           <td class="cell-data cell-data--<%= attribute.html_class %>">
-            <%= render_field attribute %>
+            <% if attribute.attribute.eql?(:pick_up) || attribute.attribute.eql?(:drop_off) %>
+              <%= "#{attribute.data.first.strftime('%B %d, %Y')} #{attribute.data.first.strftime("%I:%M %p")} - #{attribute.data.last.strftime("%I:%M %p")}" %>
+            <% else %>
+              <%= render_field attribute %>
+            <% end %>
           </td>
         <% end %>
 

@@ -8,14 +8,4 @@ class Shipping < ApplicationRecord
   validates :order, presence: true
   validates :address, presence: true
   validates :pick_up, :drop_off, presence: true
-
-  def pick_up
-    return if self[:pick_up].blank?
-  	"#{self[:pick_up].first.strftime('%B %d, %Y')} #{self[:pick_up].first.strftime("%I:%M %p")} - #{self[:pick_up].last.strftime("%I:%M %p")}"
-  end
-
-  def drop_off
-    return if self[:drop_off].blank?
-  	"#{self[:drop_off].first.strftime('%B %d, %Y')} #{self[:drop_off].first.strftime("%I:%M %p")} - #{self[:drop_off].last.strftime("%I:%M %p")}"
-  end
 end
