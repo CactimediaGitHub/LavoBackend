@@ -28,5 +28,6 @@ en:
       total_less_than_or_equal: This rule can't be applied to orders less than or equal to %{amount}
       promotion_not_found: 'Promotion not found'
       invalid_promotion_rule: 'Validation failed'
+      holiday: Close on occasion of Holiday
 
   promotion_not_found: Promotion not found

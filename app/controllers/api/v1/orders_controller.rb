@@ -5,15 +5,14 @@ class API::V1::OrdersController < API::V1::VersionController
   def create
     creation =
       API::Order::Create.new(order_params.merge(customer: current_user))
-
-    if creation.performed?
+    if creation.performed? && creation.order.valid?
       render json: creation.order,
            status: :created,
           include: [:order_items, :shipping, :address]
     else
       render json: creation.order,
-       serializer: ActiveModel::Serializer::ErrorSerializer,
-           status: :unprocessable_entity
+             serializer: ActiveModel::Serializer::ErrorSerializer,
+             status: :unprocessable_entity
     end
   end
 

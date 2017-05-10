@@ -9,6 +9,8 @@ class Order < ApplicationRecord
   has_one :shipping_method, through: :shipping
   has_one :address,         through: :shipping
 
+  validate :pickup_holiday?
+  validate :dropoff_holiday?
 
   # NOTE: payfort now allows one payment per order_id (merchant reference)
   has_one :payment
@@ -136,6 +138,20 @@ class Order < ApplicationRecord
 
   def set_initial_state
     state_machine.transition_to!(self.class.send(:initial_state))
+  end
+
+  def pickup_holiday?
+    is_holiday = vendor.holidays.map{|h| h.holiday_date.to_date}.include?(shipping.pick_up.first.to_date)
+    if is_holiday
+      errors.add(:pickup_holiday, 'Closed on occasion of\'Holiday\'')
+    end
+  end
+
+  def dropoff_holiday?
+    is_holiday = vendor.holidays.map{|h| h.holiday_date.to_date}.include?(shipping.drop_off.first.to_date)
+    if is_holiday
+      errors.add(:dropoff_holiday, 'Closed on occasion of\'Holiday\'')
+    end
   end
 
 end
