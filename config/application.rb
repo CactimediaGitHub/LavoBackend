@@ -48,6 +48,8 @@ module LavoLaundry
     config.middleware.use Rack::MethodOverride
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
+    # As conveyed by Ganesh adding time_zone to Asia/Dubai
+    config.time_zone = 'Asia/Dubai'
 
     # config.generators do |g|
     #   g.test_framework :rspec, fixture: false,
