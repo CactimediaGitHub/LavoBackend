@@ -63,14 +63,14 @@ to display a collection of resources in an HTML table.
           <td class="cell-data cell-data--<%= attribute.html_class %>">
             <% if attribute.attribute == :percent %>
               <%= PromotionAction.find(resource.id).percent.to_f %>
+            <% elsif attribute.attribute == :vendor_id %>
+              <% vendor_name = Vendor.find(attribute.data).name %>
+              <%= vendor_name %>
+            <% elsif attribute.attribute.eql?(:created_at) || attribute.attribute.eql?(:updated_at) %>
+              <%= "#{attribute.data.strftime('%B %d, %Y')}" %>
             <% else %>
               <%= render_field attribute %>
             <% end %>
-            <% if attribute.attribute == :vendor_id %>
-              <% vendor_name = Vendor.find(attribute.data).name %>
-              <%= vendor_name %>
-            <% end %>
-
           </td>
         <% end %>
 
@@ -87,7 +87,6 @@ to display a collection of resources in an HTML table.
           method: :delete,
           data: { confirm: t("administrate.actions.confirm") }
         ) %></td>
-
       </tr>
     <% end %>
   </tbody>

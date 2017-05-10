@@ -25,8 +25,7 @@ to display a collection of resources in an HTML table.
         <th class="cell-label
         cell-label--<%= attr_type.html_class %>
         cell-label--<%= collection_presenter.ordered_html_class(attr_name) %>
-      " scope="col"
-        <%= render('admin/shared/filter', attr_name: attr_name, attr_type: attr_type) if filterable_attribute?(attr_name) %>
+      " scope="col">
         <%= link_to(sanitized_params.merge(
           collection_presenter.order_params_for(attr_name)
         )) do %>
@@ -68,6 +67,20 @@ to display a collection of resources in an HTML table.
             <% end %>
           </td>
         <% end %>
+
+        <td><%= link_to(
+          t("administrate.actions.edit"),
+          [:edit, namespace, resource],
+          class: "action-edit",
+        ) %></td>
+
+        <td><%= link_to(
+          t("administrate.actions.destroy"),
+          [namespace, resource],
+          class: "table__action--destroy",
+          method: :delete,
+          data: { confirm: t("administrate.actions.confirm") }
+        ) %></td>
       </tr>
     <% end %>
   </tbody>
