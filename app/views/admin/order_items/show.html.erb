@@ -45,6 +45,12 @@ as well as a link to its edit page.
     </dt>
 
     <dd class="attribute-data attribute-data--<%=attribute.html_class%>"
-        ><%= render_field attribute %></dd>
+        >
+      <% if attribute.attribute.eql?(:created_at) || attribute.attribute.eql?(:updated_at) %>
+        <%= "#{attribute.data.strftime('%B %d, %Y %I:%M %p')}" %>
+      <% else %>
+        <%= render_field attribute %>
+      <% end %>      
+    </dd>
   <% end %>
 </dl>

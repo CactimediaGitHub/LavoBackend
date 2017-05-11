@@ -28,7 +28,7 @@ as well as a link to its edit page.
     ) %>
     <%= link_to(
       "New",
-      [:new, namespace, page.resource_name],
+      [:new, namespace, page.resource_path],
       class: "button",
     ) %>
     <%= link_to 'Back', :back, class: "button" %>
