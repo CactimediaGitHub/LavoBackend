@@ -141,16 +141,17 @@ class Order < ApplicationRecord
   end
 
   def pickup_holiday?
-    is_holiday = vendor.holidays.map{|h| h.holiday_date.to_date}.include?(shipping.pick_up.first.to_date)
-    if is_holiday
-      errors.add(:pickup_holiday, 'Closed on occasion of\'Holiday\'')
+    holidays = vendor.holidays.select{|h| h.holiday_date.to_date.eql?(shipping.pick_up.first.to_date)}
+    if holidays.present?
+      holiday_names = holidays.map(&:name).join(', ')
+      errors.add(:pickup_holiday, "Closed on occasion of #{holiday_names}")
     end
   end
 
   def dropoff_holiday?
-    is_holiday = vendor.holidays.map{|h| h.holiday_date.to_date}.include?(shipping.drop_off.first.to_date)
-    if is_holiday
-      errors.add(:dropoff_holiday, 'Closed on occasion of\'Holiday\'')
+    holidays = vendor.holidays.select{|h| h.holiday_date.to_date.eql?(shipping.drop_off.first.to_date)}
+    if holidays.present?
+      errors.add(:dropoff_holiday, "Closed on occasion of #{holiday_names}")
     end
   end
 
