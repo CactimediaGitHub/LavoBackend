@@ -8,16 +8,210 @@ as defined by the routes in the `admin/` namespace
 %>
 
 <ul class="sidebar__list">
-  <% Administrate::Namespace.new(namespace).resources.each do |resource| %>
-    <% #binding.pry %>
+  <!-- To customize it add, tab here in pure HTMl -->
+  <li class="dropdown">
+    <a class="sidebar__link sidebar__link--active dropdown-toggle" id="vendor-list" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Vendor</a>
+    <ul class="dropdown-menu" aria-labelledby="vendor-list">
+      <li>
+        <a class="sidebar__link sidebar__link--active" href="/admin/vendors">Manage Vendors</a>
+      </li>
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/items">Manage Items</a>
+      </li>
+      
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/inventory_items">Manage Inventory Items</a>
+      </li>
+      
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/item_types">Item Types</a>
+      </li>
 
-    <% next if [:cards, :promotion_rules, :promotion_actions, :images].include?(resource.name) %>
-    <li>
-      <%= link_to(
-        (resource == :reviews ? 'Rating' : display_resource_name(resource.name)),
-        resource.path,
-        class: "sidebar__link sidebar__link--#{nav_link_state(resource.name)}"
-      ) %>
-    </li>
-  <% end %>
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/services">Services</a>
+      </li>
+
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/shipping_methods">Manage Shipping Methods</a>
+      </li>
+
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/schedules">Schedules</a>
+      </li>
+
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/reviews">Reviews</a>
+      </li>
+
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/comments">Comments</a>
+      </li>
+
+    </ul>
+  </li>
+
+  <li class="dropdown">
+    <a class="sidebar__link sidebar__link--active dropdown-toggle" id="customer-list" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Customers</a>
+    <ul class="dropdown-menu" aria-labelledby="customer-list">
+      <li>
+        <a class="sidebar__link sidebar__link--active" href="/admin/customers">Manage Customers</a>
+      </li>
+
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/addresses">Addresses</a>
+      </li>
+    </ul>
+  </li>
+
+  <li class="dropdown">
+    <a class="sidebar__link sidebar__link--active dropdown-toggle" id="sales-list" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Sales</a>
+    <ul class="dropdown-menu" aria-labelledby="sales-list">
+      <li>
+        <a class="sidebar__link sidebar__link--active" href="/admin/orders">Orders</a>
+      </li>
+      
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/order_items">Order Items</a>
+      </li>
+
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/shipping_addresses">Shipping Addresses</a>
+      </li>
+    </ul>
+  </li>
+
+  <li class="dropdown">
+    <a class="sidebar__link sidebar__link--active dropdown-toggle" id="transactions-list" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Transactions</a>
+    <ul class="dropdown-menu" aria-labelledby="transactions-list">
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/payouts">Vendor Payouts</a>
+      </li>
+
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/payments">Vendor Payments</a>
+      </li>
+
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/credit_transactions">Lavo Credit</a>
+      </li>
+    </ul>
+  </li>
+
+  <li class="dropdown">
+    <a class="sidebar__link sidebar__link--active dropdown-toggle" id="promotions-list" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Promotions</a>
+    <ul class="dropdown-menu" aria-labelledby="promotions-list">
+      <li>
+        <a class="sidebar__link sidebar__link--active" href="/admin/promotions">Manage Promotions</a>
+      </li>
+
+      <li class="dropdown">
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/promotion/rules/order_totals">Rules - Order Totals</a>
+      </li>
+
+      <li class="dropdown">
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/promotion/rules/order_item_discounts">Rules - Order Item Discounts</a>
+      </li>
+
+      <li class="dropdown">
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/promotion/rules/order_item_quantities">Rules - Order Item Quantities</a>
+      </li>
+
+      <li class="dropdown">
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/promotion/actions/create_adjustments">Actions - Create Adjustments</a>
+      </li>
+
+      <li class="dropdown">
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/promotion/actions/create_item_adjustments">Actions - Create Item Adjustments</a>
+      </li>
+    </ul>
+  </li>
+
+  <li class="dropdown">
+    <a class="sidebar__link sidebar__link--active dropdown-toggle" id="cms-list" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">CMS</a>
+    <ul class="dropdown-menu" aria-labelledby="cms-list">
+      <li>
+        <a class="sidebar__link sidebar__link--active" href="/admin/pages">Pages</a>
+      </li>
+    </ul>
+  </li>
+
+  <li class="dropdown">
+    <a class="sidebar__link sidebar__link--active dropdown-toggle" id="others-list" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Others</a>
+    <ul class="dropdown-menu" aria-labelledby="others-list">
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/shipping_method_names">Shipping Method Names</a>
+      </li>
+
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/shippings">Shippings</a>
+      </li>
+
+      <li>
+        <a class="sidebar__link sidebar__link--inactive" href="/admin/holidays">Holidays</a>
+      </li>
+    </ul>
+  </li>
+
 </ul>
+
+<style type="text/css">
+  .dropdown.open .dropdown-menu a {    
+    padding: 5px 10px;
+    position: relative;
+    color: #2a94d6;
+    display: block;
+  }
+
+  .sidebar__list a {
+    cursor: pointer;
+  }
+
+  .dropdown.open .dropdown-menu a:hover, .dropdown.open .dropdown-menu a:focus {
+    background: #428bca;
+     border-radius: 3px;
+    color: #fff;
+  }
+  
+  .dropdown.open .dropdown-menu li.active a {
+    border-radius: 3px;
+    color: #fff;
+  }
+
+  .dropdown.open .dropdown-menu li a:after {
+    content: '-';
+    clear: both;
+    position: absolute;
+    color: #2a94d6;
+    left: 0;
+
+  }
+  
+  .sidebar { padding: 0px 12px; max-width: 16em; }
+  
+  .dropdown.open .dropdown-menu {
+     display: block;
+    position: relative;
+    box-shadow: none;
+    border: 0;
+  }
+
+</style>
+
+<%= javascript_tag do %>
+  $(document).ready(function () {
+    if (window.location.pathname == "/admin") {
+      $("a[href='/admin/vendors']").parents('.dropdown').addClass('open');
+      $("a[href='/admin/vendors']").parent().addClass('active');
+    } else {
+      $("a[href='" + window.location.pathname + "']").parent().addClass('active')
+      $("a[href='" + window.location.pathname + "']").parents('.dropdown').addClass('open');
+    }
+
+    $('.dropdown').on('click', function () {
+      window.localStorage = {};
+      window.localStorage.parentTab = $(this).attr('data-tab');
+      $('.dropdown.open').removeClass('open');
+      $(this).addClass('open');
+    });
+  });
+<% end %>
