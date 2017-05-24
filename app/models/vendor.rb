@@ -50,6 +50,7 @@ class Vendor < ApplicationRecord
   validates :commission, numericality: { greater_than: 0, only_integer: true }
   validates :flat_rate, numericality: { greater_than_or_equal_to: 0, only_integer: true }
   validates :phone, format: { with: PHONE_FORMAT_REGEXP }, length: { minimum: 7, maximum: 11 }
+  validates :emirate, presence: true
 
   scope :activated, -> { where(activated: true) }
 

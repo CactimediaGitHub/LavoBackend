@@ -35,6 +35,8 @@ class VendorDashboard < Administrate::BaseDashboard
     address: Field::String,
     lat: Field::Number.with_options(decimals: 6),
     lon: Field::Number.with_options(decimals: 6),
+    area: Field::String.with_options(searchable: false),
+    emirate: Field::String.with_options(searchable: false),
     cached_total_reviews: Field::Number,
     commission: Field::Number,
     flat_rate: Field::Number,
@@ -80,6 +82,8 @@ class VendorDashboard < Administrate::BaseDashboard
     address
     lat
     lon
+    area
+    emirate
     activated
     shipping_methods
     cached_average_rating
@@ -104,6 +108,8 @@ class VendorDashboard < Administrate::BaseDashboard
     :address,
     :lat,
     :lon,
+    :area,
+    :emirate,
     :activated,
     :password,
     :password_confirmation,

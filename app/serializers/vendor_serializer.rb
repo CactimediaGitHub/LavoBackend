@@ -4,6 +4,8 @@ class VendorSerializer < ActiveModel::Serializer
              :full_name,
              :lat,
              :lon,
+             :area,
+             :emirate,
              :address,
              :email,
              :phone,
