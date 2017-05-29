@@ -10,7 +10,7 @@ build:
   steps:
     - script:
       name: bundle install
-      code: gem install powerpack -v '0.1.1' && gem install powerpack -v '0.1.1' && gem install choice -v '0.2.0' && gem install websocket-extensions -v '0.1.2' && gem install rack-test -v '0.6.3' && bundle install --retry 30 --deployment
+      code: gem install railties -v '5.0.1' && gem install powerpack -v '0.1.1' && gem install powerpack -v '0.1.1' && gem install choice -v '0.2.0' && gem install websocket-extensions -v '0.1.2' && gem install rack-test -v '0.6.3' && bundle install --retry 30 --deployment
     - script:
       name: remove unicorn config
       code: rm config/unicorn.rb
