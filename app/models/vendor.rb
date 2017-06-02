@@ -130,6 +130,10 @@ class Vendor < ApplicationRecord
     false
   end
 
+  def self.search_by_name(vendors, query)
+    vendors.where('vendors.name ilike (?)', "%#{query}%")
+  end
+
   protected
 
   def delete_dirs
