@@ -131,7 +131,7 @@ class Vendor < ApplicationRecord
   end
 
   def self.search_by_name(vendors, query)
-    vendors.where('vendors.name ilike (?)', "%#{query}%")
+    vendors.where('vendors.name ilike (?)', "%#{query}%").order(cached_average_rating: :desc)
   end
 
   protected
