@@ -1,0 +1,20 @@
+<tr>
+  <th>Total number of orders</th>
+  <th>Number of regular orders</th>
+  <th>Number of open baskets</th>
+  <th>Total transaction amount</th>
+  <th>Lavo commission amount</th>
+  <th>Net payable amount to the vendor</th>
+  <th>Account balance</th>
+</tr>
+<% vendors.each do |vendor| %>
+  <tr>
+    <td><%= vendor.orders.count %></td>
+    <td><%= vendor.orders.regularbasket.count %></td>
+    <td><%= vendor.orders.openbasket.count %></td>
+    <td><%= vendor.payments.sum(&:paid_amount) %></td>
+    <td><%= vendor.commission %></td> 
+    <td><%= vendor.payments.sum(&:paid_amount) - (vendor.orders.count * vendor.commission) %></td>
+    <td><%= vendor.balance %></td>
+  </tr>
+<% end %>

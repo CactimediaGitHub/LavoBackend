@@ -3,6 +3,8 @@ class Vendor < ApplicationRecord
   include UserRelated
   include ImagesManagement
 
+  WORKSHEET_NAME = 'Vendor-Transactions'
+
   # FIXME: write a custom trigger to update tsv for searching against cached_average_rating
   pg_search_scope(:search,
     against: [:name, :address, :email, :phone],
@@ -91,7 +93,7 @@ class Vendor < ApplicationRecord
         ST_Distance(
           ST_SetSRID(ST_Point(#{lat}, #{lon}), 4326)::geography,
           ST_SetSRID(ST_Point(lat, lon), 4326)::geography
-        )
+        ) 
       )
     )
   end
@@ -108,6 +110,21 @@ class Vendor < ApplicationRecord
                        object.balance, object.cached_average_rating,
                        object.cached_total_reviews,
                        object.transactions.sum(:order_total)])
+      end
+    end
+    package.to_stream.read
+  end
+
+  def self.to_transactions_xlsx(collection)
+    package = Axlsx::Package.new
+    workbook = package.workbook
+    workbook.add_worksheet(name: WORKSHEET_NAME) do |sheet|
+      sheet.add_row(['Total number of orders', 'Number of regular orders', 'Number of open baskets', 'Total transaction amount', 'Lavo commision amount', 'Net payable amount', 'Account balance'])
+      collection.each do |object|
+        sheet.add_row([object.orders.count, object.orders.regularbasket.count,
+                       object.orders.openbasket.count, vendor.payments.sum(&:paid_amount),
+                       vendor.commission, vendor.payments.sum(&:paid_amount) - (vendor.orders.count - vendor.commission),
+                       vendor.balance])
       end
     end
     package.to_stream.read
@@ -132,6 +149,15 @@ class Vendor < ApplicationRecord
 
   def self.search_by_name(vendors, query)
     vendors.where('vendors.name ilike (?)', "%#{query}%").order(cached_average_rating: :desc)
+  end
+
+  # Fetches vendors transactions details
+  def self.fetch_transaction_report(vendor_ids, start_date, end_date)
+    vendor_ids = vendor_ids.compact.reject{ |vendor_id| vendor_id.strip.empty? }
+    return [] if vendor_ids.blank? && start_date.blank? && end_date.blank?
+    Vendor
+      .where('vendors.id IN (?)', vendor_ids).includes(:transactions)
+      .where('payments.created_at BETWEEN (?) AND (?)',start_date, end_date).references(:transactions)
   end
 
   protected

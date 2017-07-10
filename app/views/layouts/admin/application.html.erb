@@ -19,6 +19,8 @@ By default, it renders:
   <meta name="ROBOTS" content="NOODP" />
   <meta name="viewport" content="initial-scale=1" />
   <title><%= content_for(:title) %> | <%= Rails.application.class.parent_name.titlecase %></title>
+  <%= stylesheet_link_tag "administrate/bootstrap.min", media: "all" %>
+  <%= stylesheet_link_tag "administrate/jquery-ui.min", media: "all" %>
   <%= stylesheet_link_tag "administrate/application", media: "all" %>
   <%= render "javascript" %>
   <%= csrf_meta_tags %>
@@ -42,3 +44,6 @@ By default, it renders:
 
 </body>
 </html>
+
+<%= javascript_include_tag "administrate/bootstrap.min.js" %>
+<%= javascript_include_tag "administrate/jquery-ui.min.js" %>

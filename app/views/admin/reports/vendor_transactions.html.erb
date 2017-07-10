@@ -1,0 +1,36 @@
+<div class="container">
+  <%= form_for :vendor, url: search_vendor_transactions_admin_reports_url, method: :get, html: {}, remote: true do |f| %>
+    <div class="row">
+      <div class="col-md-5">
+        <%= f.label :ids, 'Vendor Name' %>
+      </div>
+      <div class="col-md-5">
+        <%= f.select :ids, options_for_select(@vendors_name), {}, { multiple: true, class: 'chzn-select', style: 'width:450px;' } %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <%= f.label :start_date, 'Start Date' %>
+      </div>
+      <div class="col-md-5">
+        <%= f.text_field :start_date, 'data-behaviour' => 'datepicker' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <%= f.label :end_date, 'End Date' %>
+      </div>
+      <div class="col-md-5">
+        <%= f.text_field :end_date, 'data-behaviour' => 'datepicker' %>
+      </div>
+    </div>
+    <%= f.submit 'Filter' %>
+    <% if @vendors.present? %>
+      <%= link_to 'Export', 'javascript:void(0);', class: 'btn btn-default btn-primary', id: 'exportTransactions' %>
+    <% end %>
+  <% end %>
+</div>
+
+<table id='transactionsList'>
+  <%= render partial: 'transactions_list', locals: { vendors: @vendors } %>
+</table>

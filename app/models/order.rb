@@ -49,6 +49,7 @@ class Order < ApplicationRecord
   after_create :set_initial_state
 
   scope :openbasket, -> { where(openbasket: true) }
+  scope :regularbasket, -> { where(openbasket: false) }
 
   pg_search_scope(:search,
     associated_against: {

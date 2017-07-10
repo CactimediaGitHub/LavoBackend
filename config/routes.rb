@@ -45,6 +45,13 @@ Rails.application.routes.draw do
       o.resources :payments
       o.resources :cards
     end
+    resources :reports do
+      collection do
+        get :vendor_transactions
+        get :search_vendor_transactions
+        get :export_transactions
+      end
+    end
     root to: "vendors#index"
   end
 
