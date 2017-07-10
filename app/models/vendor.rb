@@ -122,8 +122,8 @@ class Vendor < ApplicationRecord
       sheet.add_row(['Total number of orders', 'Number of regular orders', 'Number of open baskets', 'Total transaction amount', 'Lavo commision amount', 'Net payable amount', 'Account balance'])
       collection.each do |object|
         sheet.add_row([object.orders.count, object.orders.regularbasket.count,
-                       object.orders.openbasket.count, vendor.payments.sum(&:paid_amount),
-                       vendor.commission, vendor.payments.sum(&:paid_amount) - (vendor.orders.count - vendor.commission),
+                       object.orders.openbasket.count, vendor.transactions.sum(&:paid_amount),
+                       vendor.commission, vendor.transactions.sum(&:paid_amount) - (vendor.orders.count - vendor.commission),
                        vendor.balance])
       end
     end

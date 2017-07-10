@@ -12,9 +12,9 @@
     <td><%= vendor.orders.count %></td>
     <td><%= vendor.orders.regularbasket.count %></td>
     <td><%= vendor.orders.openbasket.count %></td>
-    <td><%= vendor.payments.sum(&:paid_amount) %></td>
+    <td><%= vendor.transactions.sum(&:paid_amount) %></td>
     <td><%= vendor.commission %></td> 
-    <td><%= vendor.payments.sum(&:paid_amount) - (vendor.orders.count * vendor.commission) %></td>
+    <td><%= vendor.transactions.sum(&:paid_amount) - (vendor.orders.count * vendor.commission) %></td>
     <td><%= vendor.balance %></td>
   </tr>
 <% end %>
