@@ -25,12 +25,39 @@
       </div>
     </div>
     <%= f.submit 'Filter' %>
-    <% if @vendors.present? %>
-      <%= link_to 'Export', 'javascript:void(0);', class: 'btn btn-default btn-primary', id: 'exportTransactions' %>
-    <% end %>
+    <%= link_to 'Export', 'javascript:void(0);', class: 'btn btn-default btn-primary', id: 'exportTransactions' %>
   <% end %>
 </div>
 
 <table id='transactionsList'>
   <%= render partial: 'transactions_list', locals: { vendors: @vendors } %>
 </table>
+
+<%= javascript_tag do %>
+  $(document).ready(function () {
+    $('#vendor_start_date').datepicker();
+    $('#vendor_end_date').datepicker();
+    
+    $('#exportTransactions').on('click', function () {
+      vendorStartDate = $('#vendor_start_date').val();
+      vendorEndDate = $('#vendor_end_date').val();
+      vendorIds = $('#vendor_ids').val();
+      if (vendorStartDate && vendorEndDate && vendorIds) {
+        $.ajax({
+          type: 'GET',
+          url: '/admin/reports/export_transactions.xlsx',
+          data: { vendor: { start_date: vendorStartDate, end_date: vendorEndDate, ids: vendorIds } },
+          success: function () {
+            console.log('Xlsx file is exported');
+          },
+          error: function (error) {
+            console.log(error);
+          }
+        });
+      }
+      else {
+        alert('Please enter values before applying filter');
+      }
+    });
+  });
+<% end %>

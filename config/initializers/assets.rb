@@ -10,5 +10,4 @@ Rails.application.config.assets.precompile += %w(
   administrate/jquery-ui.min.css
   fallback/item/default_icon.svg
   top.jpg
-  administrate/transactions.coffee
 )
