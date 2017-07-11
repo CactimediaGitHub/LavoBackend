@@ -23,7 +23,7 @@ module Admin
     private
 
       def filter_vendors
-        vendor_ids = params[:vendor][:ids]
+        vendor_ids = action_name.eql?('export_transactions') ? params[:vendor][:ids][0].split(',') : vendor_ids = params[:vendor][:ids]
         vendor_start_date = params[:vendor][:start_date]
         vendor_end_date = params[:vendor][:end_date]
         @vendors = Vendor.fetch_transaction_report(vendor_ids, vendor_start_date, vendor_end_date)
