@@ -16,7 +16,7 @@ module Admin
 
     def export_transactions
       respond_to do |format|
-        format.xlsx { send_data Vendor.to_transactions_xlsx(@vendors) }
+        format.csv { send_data Vendor.to_transactions_csv(@vendors), filename: "transactions-#{Date.today}.csv" }
       end
     end
 

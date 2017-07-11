@@ -115,19 +115,19 @@ class Vendor < ApplicationRecord
     package.to_stream.read
   end
 
-  def self.to_transactions_xlsx(collection)
-    package = Axlsx::Package.new
-    workbook = package.workbook
-    workbook.add_worksheet(name: WORKSHEET_NAME) do |sheet|
-      sheet.add_row(['Total number of orders', 'Number of regular orders', 'Number of open baskets', 'Total transaction amount', 'Lavo commision amount', 'Net payable amount', 'Account balance'])
+  def self.to_transactions_csv(collection)
+    CSV.generate(headers: true) do |csv|
+      csv << ['Vendor name', 'Total number of orders', 'Number of regular orders', 
+              'Number of open baskets', 'Total transaction amount', 
+              'Lavo commision amount', 'Net payable amount', 
+              'Account balance']
       collection.each do |object|
-        sheet.add_row([object.orders.count, object.orders.regularbasket.count,
-                       object.orders.openbasket.count, vendor.transactions.sum(&:paid_amount),
-                       vendor.commission, vendor.transactions.sum(&:paid_amount) - (vendor.orders.count - vendor.commission),
-                       vendor.balance])
+        csv << [object.name, object.orders.count, object.orders.regularbasket.count,
+                object.orders.openbasket.count, object.transactions.sum(&:paid_amount),
+                object.commission, object.transactions.sum(&:paid_amount) - (object.orders.count - object.commission),
+                object.balance]
       end
     end
-    package.to_stream.read
   end
 
   def full_name

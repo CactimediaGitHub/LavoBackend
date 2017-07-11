@@ -25,7 +25,12 @@
       </div>
     </div>
     <%= f.submit 'Filter' %>
-    <%= link_to 'Export', 'javascript:void(0);', class: 'btn btn-default btn-primary', id: 'exportTransactions' %>
+  <% end %>
+  <%= form_for :vendor, url: export_transactions_admin_reports_path(format: :csv), html: { method: :get, id: 'exportTransactionsReports' } do |ef| %>
+    <%= ef.hidden_field :ids, id: 'hidden_vendor_ids', multiple: true %>
+    <%= ef.hidden_field :start_date, id: 'hidden_vendor_start_date' %>
+    <%= ef.hidden_field :end_date, id: 'hidden_vendor_end_date' %>
+    <%= ef.submit 'Export', data: { disable_with: false } %>
   <% end %>
 </div>
 
@@ -38,25 +43,17 @@
     $('#vendor_start_date').datepicker();
     $('#vendor_end_date').datepicker();
     
-    $('#exportTransactions').on('click', function () {
+    $('#exportTransactionsReports').on('submit', function () {
       vendorStartDate = $('#vendor_start_date').val();
       vendorEndDate = $('#vendor_end_date').val();
       vendorIds = $('#vendor_ids').val();
       if (vendorStartDate && vendorEndDate && vendorIds) {
-        $.ajax({
-          type: 'GET',
-          url: '/admin/reports/export_transactions.xlsx',
-          data: { vendor: { start_date: vendorStartDate, end_date: vendorEndDate, ids: vendorIds } },
-          success: function () {
-            console.log('Xlsx file is exported');
-          },
-          error: function (error) {
-            console.log(error);
-          }
-        });
-      }
-      else {
+        $('#hidden_vendor_ids').val(vendorIds);
+        $('#hidden_vendor_start_date').val(vendorStartDate);
+        $('#hidden_vendor_end_date').val(vendorEndDate);
+      } else {
         alert('Please enter values before applying filter');
+        return false;
       }
     });
   });
