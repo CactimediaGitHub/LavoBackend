@@ -156,7 +156,8 @@ class Vendor < ApplicationRecord
     vendor_ids = vendor_ids.compact.reject{ |vendor_id| vendor_id.strip.empty? }
     return [] if vendor_ids.blank? && start_date.blank? && end_date.blank?
     Vendor
-      .where('vendors.id IN (?)', vendor_ids).includes(:transactions)
+      .where('vendors.id IN (?)', vendor_ids).includes(transactions: :order)
+      .where("orders.state = 'completed'").references(:orders)
       .where('payments.created_at BETWEEN (?) AND (?)',start_date, end_date).references(:transactions)
   end
 
