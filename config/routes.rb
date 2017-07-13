@@ -52,6 +52,12 @@ Rails.application.routes.draw do
         get :export_transactions
       end
     end
+
+    resources :uploads, only: %i(index) do
+      collection do
+        post :vendor_details
+      end
+    end
     root to: "vendors#index"
   end
 

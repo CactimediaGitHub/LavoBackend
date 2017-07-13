@@ -1,0 +1,9 @@
+<% if @alert_msg.present? %>
+	alert('<%= @alert_msg %>');
+<% end %>
+
+<% if @has_errors %>
+	$('#errors').html("<%= @error_msgs.join('. ') %>");
+<% else %>
+	alert('Bulk uploaded successfully.');
+<% end %>

@@ -29,6 +29,7 @@ gem 'rails', '5.0.1'
 gem 'sidekiq'
 gem 'statesman'
 gem 'unicorn'
+gem 'remotipart'
 
 gem 'sass-rails'
 gem 'uglifier'
