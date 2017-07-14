@@ -1,5 +1,5 @@
 <div class="container">
-	<h3>Upload Vendor Details</h3>
+	<h3>Upload Vendor Details -</h3>
 	<div class="well">
 		<div id="errors"></div>
 		<%= form_for :upload, url: vendor_details_admin_uploads_path, method: :post, html: { id: 'bulkUpload', multipart: :true, remote: true }, authenticity_token: true do |f| %>

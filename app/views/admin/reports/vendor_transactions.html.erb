@@ -2,10 +2,18 @@
   <%= form_for :vendor, url: search_vendor_transactions_admin_reports_path, method: :get, html: {}, remote: true do |f| %>
     <div class="row">
       <div class="col-md-5">
+        <%= f.label :all, 'Select all vendors' %>
+      </div>
+      <div class="col-md-5">
+        <%= f.check_box :all %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
         <%= f.label :ids, 'Vendor Name' %>
       </div>
       <div class="col-md-5">
-        <%= f.select :ids, options_for_select(@vendors_name), {}, { multiple: true, class: 'chzn-select', style: 'width:450px;' } %>
+        <%= f.select :ids, options_for_select(@vendors_name), { include_blank: 'All vendors' }, { multiple: true, class: 'chzn-select', style: 'width:450px;' } %>
       </div>
     </div>
     <div class="row">
@@ -55,6 +63,10 @@
         alert('Please enter values before applying filter');
         return false;
       }
+    });
+
+    $('#vendor_all').on('change', function () {
+      $(this).is(':checked') ? $('#vendor_ids option').prop('selected', true) : $('#vendor_ids option').prop('selected', false);
     });
   });
 <% end %>
