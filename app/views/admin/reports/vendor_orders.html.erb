@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_for :vendor, url: search_vendor_transactions_admin_reports_path, method: :get, html: {}, remote: true do |f| %>
+  <%= form_for :vendor, url: search_vendor_orders_admin_reports_path, method: :get, html: {}, remote: true do |f| %>
     <div class="row">
       <div class="col-md-5">
         <%= f.label :all, 'Select all vendors' %>
@@ -34,7 +34,7 @@
     </div>
     <%= f.submit 'Filter' %>
   <% end %>
-  <%= form_for :vendor, url: export_transactions_admin_reports_path(format: :csv), html: { method: :get, id: 'exportTransactionsReports' } do |ef| %>
+  <%= form_for :vendor, url: export_orders_admin_reports_path(format: :csv), html: { method: :get, id: 'exportOrdersReports' } do |ef| %>
     <%= ef.hidden_field :ids, id: 'hidden_vendor_ids', multiple: true %>
     <%= ef.hidden_field :start_date, id: 'hidden_vendor_start_date' %>
     <%= ef.hidden_field :end_date, id: 'hidden_vendor_end_date' %>
@@ -42,8 +42,8 @@
   <% end %>
 </div>
 
-<table id='transactionsList'>
-  <%= render partial: 'transactions_list', locals: { vendors: @vendors } %>
+<table id='ordersList'>
+  <%= render partial: 'orders_list', locals: { orders: @orders } %>
 </table>
 
 <%= javascript_tag do %>
@@ -51,11 +51,11 @@
     $('#vendor_start_date').datepicker();
     $('#vendor_end_date').datepicker();
     
-    $('#exportTransactionsReports').on('submit', function () {
+    $('#exportOrdersReports').on('submit', function () {
       vendorStartDate = $('#vendor_start_date').val();
       vendorEndDate = $('#vendor_end_date').val();
       vendorIds = $('#vendor_ids').val();
-      if (vendorStartDate && vendorEndDate && vendorIds) {
+      if (vendorIds) {
         $('#hidden_vendor_ids').val(vendorIds);
         $('#hidden_vendor_start_date').val(vendorStartDate);
         $('#hidden_vendor_end_date').val(vendorEndDate);

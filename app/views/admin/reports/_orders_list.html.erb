@@ -1,0 +1,24 @@
+<tr>
+  <th>Order date</th>
+  <th>Customer name</th>
+  <th>Order number</th>
+  <th>Order type</th>
+  <th>Payment type</th>
+  <th>Status</th>
+  <th>Total bill amount</th>
+  <th>Lavo commision on</th>
+  <th>Net payable amount to vendor</th>
+</tr>
+<% orders.each do |order| %>
+  <tr>
+    <td><%= order.created_at.strftime('%B %d, %Y %I:%M %p') %></td>
+    <td><%= order.customer_name %></td>
+    <td><%= order.id %></td>
+    <td><%= order.openbasket ? 'Open Basket' : 'Regular' %></td>
+    <td><%= order.payment.present? ? order.payment_method.try(:titleize) : '' %></td> 
+    <td><%= order.state.titleize %></td>
+    <td><%= order.total %></td>
+    <td><%= order.vendor_commission %></td>
+    <td><%= order.total - order.vendor_commission %></td>
+  </tr>
+<% end %>

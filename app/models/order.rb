@@ -30,7 +30,9 @@ class Order < ApplicationRecord
 
   has_many :order_promotions
   has_many :promotions, through: :order_promotions, class_name: 'Promotion'
-
+  delegate :name, to: :customer, prefix: true
+  delegate :payment_method, to: :payment, prefix: false
+  delegate :commission, to: :vendor, prefix: true
 
   # accepts_nested_attributes_for :order_items
   validates_associated :order_items
@@ -133,6 +135,34 @@ class Order < ApplicationRecord
 
   def paid_by_cash?
     payment.cash?
+  end
+
+  # Fetches vendors transactions details
+  def self.fetch_order_report(vendor_ids, start_date, end_date)
+    vendor_ids = vendor_ids.compact.reject{ |vendor_id| vendor_id.strip.empty? }
+    return [] if vendor_ids.blank? && start_date.blank? && end_date.blank?
+    orders = Order.includes(:vendor, :payment)
+      .where('orders.vendor_id IN (?)', vendor_ids).references(:orders)
+    if (start_date.present? && end_date.present?)
+      orders = orders
+        .where('orders.created_at BETWEEN (?) AND (?)',start_date, end_date)
+    end
+    orders
+  end
+
+  def self.to_orders_csv(collection)
+    CSV.generate(headers: true) do |csv|
+      csv << ['Order date', 'Customer name', 'Order number', 
+              'Order type', 'Payment type', 
+              'Status', 'Total bill amount', 
+              'Lavo commision on', 'Net payable amount to vendor']
+      collection.each do |object|
+        csv << [object.created_at.strftime('%B %d, %Y %I:%M %p'), object.customer_name,
+                object.id, object.openbasket ? 'Open Basket' : 'Regular',
+                object.payment.present? ? object.payment_method.try(:titleize) : '', object.state.titleize,
+                object.total, object.vendor_commission, object.total - object.vendor_commission]
+      end
+    end
   end
 
   private
