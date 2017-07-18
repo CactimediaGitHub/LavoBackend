@@ -48,11 +48,11 @@ Rails.application.routes.draw do
     resources :reports do
       collection do
         get :vendor_transactions
-        get :search_vendor_transactions
-        get :export_transactions
+        post :search_vendor_transactions
+        post :export_transactions
         get :vendor_orders
-        get :search_vendor_orders
-        get :export_orders
+        post :search_vendor_orders
+        post :export_orders
       end
     end
 
