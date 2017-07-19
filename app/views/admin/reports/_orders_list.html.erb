@@ -17,8 +17,8 @@
     <td><%= order.openbasket ? 'Open Basket' : 'Regular' %></td>
     <td><%= order.payment.present? ? order.payment_method.try(:titleize) : '' %></td> 
     <td><%= order.state.titleize %></td>
-    <td><%= order.total_in_aed %></td>
-    <td><%= order.vendor_commission %></td>
-    <td><%= order.total_in_aed - order.vendor_commission %></td>
+    <td><%= number_to_currency(order.total_in_aed, unit: '') %> AED</td>
+    <td><%= number_to_currency(order.vendor_commission, unit: '') %> AED</td>
+    <td><%= number_to_currency((order.total_in_aed - order.vendor_commission), unit: '') %> AED</td>
   </tr>
 <% end %>

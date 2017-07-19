@@ -160,7 +160,7 @@ class Order < ApplicationRecord
         csv << [object.created_at.strftime('%B %d, %Y %I:%M %p'), object.customer_name,
                 object.id, object.openbasket ? 'Open Basket' : 'Regular',
                 object.payment.present? ? object.payment_method.try(:titleize) : '', object.state.titleize,
-                object.total_in_aed, object.vendor_commission, object.total_in_aed - object.vendor_commission]
+                "#{'%.2f' % object.total_in_aed} AED", "#{'%.2f' % object.vendor_commission} AED", "#{'%.2f' % (object.total_in_aed - object.vendor_commission)} AED"]
       end
     end
   end
