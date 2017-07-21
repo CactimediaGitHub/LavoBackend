@@ -1,57 +1,25 @@
 <div class="container">
-	<h3>Upload Vendor Details -</h3>
-	<div class="well">
-		<div id="errors"></div>
-		<%= form_for :upload, url: vendor_details_admin_uploads_path, method: :post, html: { id: 'bulkUpload', multipart: :true, remote: true }, authenticity_token: true do |f| %>
-			<div class="row">
-	      <div class="col-md-5">
-	        <%= f.label :vendor_id, 'Vendor Name' %>
-	      </div>
-	      <div class="col-md-5">
-	        <%= f.select :vendor_id, options_for_select(@vendors_name), {}, {  class: 'chzn-select', style: 'width:450px;' } %>
-	      </div>
-	    </div>
-	    <div class="row">
-	      <div class="col-md-5">
-	        <%= f.label :item_type_id, 'Item Type' %>
-	      </div>
-	      <div class="col-md-5">
-	        <%= f.select :item_type_id, options_for_select(@item_types_name), {}, {  class: 'chzn-select', style: 'width:450px;' } %>
-	      </div>
-	    </div>
-	    <div class="row">
-	      <div class="col-md-5">
-	        <%= f.label :item_id, 'Item Name' %>
-	      </div>
-	      <div class="col-md-5">
-	        <%= f.select :item_id, options_for_select(@items_name), {}, {  class: 'chzn-select', style: 'width:450px;' } %>
-	      </div>
-	    </div>
-	    <div class="row">
-	      <div class="col-md-5">
-	        <%= f.label :service_id, 'Service Name' %>
-	      </div>
-	      <div class="col-md-5">
-	        <%= f.select :service_id, options_for_select(@services_name), {}, {  class: 'chzn-select', style: 'width:450px;' } %>
-	      </div>
-	    </div>
-	    <div class="row">
-	      <div class="col-md-5">
-	        <%= f.label :type, 'Upload Type' %>
-	      </div>
-	      <div class="col-md-5">
-	        <%= f.select :type, options_for_select(@upload_types), {}, { class: 'chzn-select', style: 'width:450px;' } %>
-	      </div>
-	    </div>
-	    <div class="row">
-	      <div class="col-md-5">
-	        <%= f.label :file, 'Upload CSV File' %>
-	      </div>
-	      <div class="col-md-5">
-	        <%= f.file_field :file %>
-	      </div>
-	    </div>
-	    <%= f.submit 'Upload' %>
-		<% end %>
-	</div>
+  <h3>Upload Vendor Details -</h3>
+  <div class="well">
+    <div id="errors"></div>
+    <%= form_for :upload, url: vendor_details_admin_uploads_path, method: :post, html: { id: 'bulkUpload', multipart: :true, remote: true }, authenticity_token: true do |f| %>
+      <div class="row">
+        <div class="col-md-5">
+          <%= f.label :type, 'Upload Type' %>
+        </div>
+        <div class="col-md-5">
+          <%= f.select :type, options_for_select(@upload_types), {}, { class: 'chzn-select', style: 'width:450px;' } %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <%= f.label :file, 'Upload CSV File' %>
+        </div>
+        <div class="col-md-5">
+          <%= f.file_field :file %>
+        </div>
+      </div>
+      <%= f.submit 'Upload' %>
+    <% end %>
+  </div>
 </div>
