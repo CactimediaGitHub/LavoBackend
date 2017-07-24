@@ -49,6 +49,17 @@ module BulkUploader
             end
           end
         end
+      when 'Shipping Methods'
+        ShippingMethod.transaction do
+          CSV.foreach(file.tempfile, headers: true) do |row|
+            begin
+              shipping_method = ShippingMethod.new(row.to_hash)
+              shipping_method.save!
+            rescue ActiveRecord::RecordInvalid
+              return [true, shipping_method.errors.full_messages]
+            end
+          end
+        end
       end
   end
 end

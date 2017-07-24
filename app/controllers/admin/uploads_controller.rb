@@ -3,7 +3,7 @@ module Admin
     include BulkUploader
 
     def index
-      @upload_types = ['Vendors', 'Inventory Items', 'Schedules', 'Items']
+      @upload_types = ['Vendors', 'Inventory Items', 'Schedules', 'Items', 'Shipping Methods']
     end
 
     def vendor_details
