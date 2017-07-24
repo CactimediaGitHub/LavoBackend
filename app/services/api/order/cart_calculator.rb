@@ -80,8 +80,10 @@ class API::Order::CartCalculator
 
   def order
     @order ||= Order.new do |o|
-      o.order_items = find_order_items
-      o.vendor = o.order_items.first.inventory_item.vendor
+      if o.order_items.present?
+        o.order_items = find_order_items
+        o.vendor = o.order_items.first.inventory_item.vendor
+      end
       o.shipping_amount = shipping_amount
       o.subtotal = subtotal
       o.total = o.shipping_amount + o.subtotal

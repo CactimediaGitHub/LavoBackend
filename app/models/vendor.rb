@@ -61,18 +61,9 @@ class Vendor < ApplicationRecord
   end
 
   def self.near(args = {})
-    where(
-      %(
-        ST_DWithin(
-          ST_SetSRID(ST_Point(:lat,:lon),4326)::geography,
-          ST_SetSRID(ST_Point(lat,lon),4326)::geography,
-          :radius
-        )
-      ),
-      lat: args[:lat],
-      lon: args[:lon],
-      radius: args.fetch(:radius, 5000)
-    ).proximity_order(args[:lat], args[:lon])
+    query = "SELECT ( 3959 * acos( cos( radians(25.0987698) ) * cos( radians( #{args[:lat]} ) ) * cos( radians( #{args[:lon]} ) - radians(55.178788999999995) ) + sin( radians(25.0987698) ) * sin( radians( #{args[:lat]} ) ) ) ) AS distance, name"\
+            " FROM vendors WHERE activated = true ORDER BY distance limit 20;"
+    ActiveRecord::Base.connection.execute(query)
   end
 
   def self.withing(args = {})

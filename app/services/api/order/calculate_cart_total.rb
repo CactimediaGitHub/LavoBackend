@@ -5,7 +5,7 @@ class API::Order::CalculateCartTotal
   attr_accessor :order_items, :shipping, :promotion_amount
   attr_reader :total, :subtotal, :id
 
-  validates :order_items, :shipping, presence: true
+  validates :shipping, presence: true
   # validates :subtotal, :total, numericality: { greater_than: 0 }
 
   def promotion_amount
