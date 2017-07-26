@@ -13,7 +13,9 @@ class VendorSerializer < ActiveModel::Serializer
              :images,
              :cached_total_reviews,
              :cached_average_rating,
-             :balance
+             :balance,
+             :flat_rate,
+             :commission
 
 
   has_many :reviews
