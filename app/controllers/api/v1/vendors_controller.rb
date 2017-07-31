@@ -50,6 +50,14 @@ class API::V1::VendorsController < API::V1::VersionController
     render json: @vendor.schedules
   end
 
+  def fetch_balance
+    if current_user
+      render json: { balance: current_user.balance }, status: 200
+    else
+      render json: {}, status: 400
+    end
+  end
+
   private
 
   def set_vendor

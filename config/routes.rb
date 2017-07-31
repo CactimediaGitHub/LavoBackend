@@ -76,9 +76,7 @@ Rails.application.routes.draw do
       get '/', to: redirect('/docs/api/v1')
 
       scope(module: :user) do
-        resource :signin, only: :create do
-          get 'fetch_user/:id', action: :fetch_user, on: :member
-        end
+        resource :signin, only: :create
         resource :social_signin, only: :create
         resource :signup, only: :create
         resource :signout, only: :destroy
@@ -133,6 +131,7 @@ Rails.application.routes.draw do
           get :reviews
           get :shipping_methods
           get :schedule
+          get :fetch_balance
         end
       end
 
