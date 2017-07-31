@@ -5,7 +5,6 @@
   <th>Number of open baskets</th>
   <th>Total transaction amount</th>
   <th>Lavo commission amount</th>
-  <th>Net payable amount to the vendor</th>
   <th>Account balance</th>
 </tr>
 <% vendors.each do |vendor| %>
@@ -16,7 +15,6 @@
     <td><%= vendor.orders.openbasket.count %></td>
     <td><%= vendor.transactions.sum(&:paid_amount) %></td>
     <td><%= vendor.commission %></td> 
-    <td><%= vendor.transactions.sum(&:paid_amount) - (vendor.orders.count * vendor.commission) %></td>
-    <td><%= vendor.balance %></td>
+    <td><%= number_to_currency(vendor.balance_in_aed, unit: '') %> AED</td>
   </tr>
 <% end %>

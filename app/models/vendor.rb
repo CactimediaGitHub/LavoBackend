@@ -161,6 +161,10 @@ class Vendor < ApplicationRecord
       .where('payments.created_at BETWEEN (?) AND (?)',start_date, end_date).references(:transactions)
   end
 
+  def balance_in_aed
+    balance.present? ? balance/100 : 0     
+  end
+
   protected
 
   def delete_dirs
