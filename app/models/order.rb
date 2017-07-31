@@ -169,6 +169,16 @@ class Order < ApplicationRecord
     total.present? ? total/100 : 0
   end
 
+  def payable_amount
+    if vendor.flat_rate && vendor.flat_rate != 0
+      (total_in_aed - vendor.flat_rate).to_i
+    elsif vendor.commission && vendor.commission != 0
+      (total_in_aed * ((100 - vendor.commission.to_f)/100)).to_i
+    else
+      total_in_aed
+    end
+  end
+
   private
 
   def set_initial_state
