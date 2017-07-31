@@ -5,7 +5,13 @@ class Calculator
     attr_accessor :vendor
 
     def compute
-      (total - total * vendor.commission.to_f / 100).to_i
+      if vendor.flat_rate && vendor.flat_rate != 0
+        (total - vendor.flat_rate).to_i
+      elsif vendor.commission && vendor.commission != 0
+        (total * ((100 - vendor.commission.to_f)/100)).to_i
+      else
+        total
+      end
     end
 
     private
