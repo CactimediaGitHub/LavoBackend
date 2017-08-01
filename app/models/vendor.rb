@@ -51,7 +51,7 @@ class Vendor < ApplicationRecord
   # FIXME: set comission as separate has_many association
   validates :commission, numericality: { greater_than: 0, only_integer: true }
   validates :flat_rate, numericality: { greater_than_or_equal_to: 0, only_integer: true }
-  validates :phone, format: { with: PHONE_FORMAT_REGEXP }, length: { minimum: 7, maximum: 11 }
+  validates :phone, format: { with: PHONE_FORMAT_REGEXP }, length: { minimum: 9, maximum: 10 }
   validates :emirate, presence: true
 
   scope :activated, -> { where(activated: true) }
