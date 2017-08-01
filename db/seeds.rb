@@ -8,25 +8,25 @@ avatar = Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/files/avata
 image  = Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/files/laundry.jpg'), 'image/jpg')
 
 coord10 = Geocoder.coordinates("Al Sa'ada Street - Dubai - United Arab Emirates")
-v1 = Vendor.create!(name: 'Diva Laundry', activated: true, lat: coord10[0], lon: coord10[1], email: 'vendor-01@divalaundry.com', avatar: avatar, images: [image], password: '123456', password_confirmation: '123456', phone: '44534944', address: 'R02A, ICON Tower Tecom : New Media City Extension - Dubai', emirate: 'Dubai')
+v1 = Vendor.create!(name: 'Diva Laundry', activated: true, lat: coord10[0], lon: coord10[1], email: 'vendor-01@divalaundry.com', avatar: avatar, images: [image], password: '123456', password_confirmation: '123456', phone: '445349441', address: 'R02A, ICON Tower Tecom : New Media City Extension - Dubai', emirate: 'Dubai')
 
 coord20 = Geocoder.coordinates('Tecom, Dubai')
-v1 = Vendor.create!(name: 'Baraa Laundry', activated: true, lat: coord20[0], lon: coord20[1], email: 'vendor-02@baraa-laundry.com', avatar: avatar, images: [image], password: '123456', password_confirmation: '123456', phone: '44534944', address: 'G25, Ground Floor, I-Rise Tower, Tecom, Dubai', emirate: 'Dubai')
+v1 = Vendor.create!(name: 'Baraa Laundry', activated: true, lat: coord20[0], lon: coord20[1], email: 'vendor-02@baraa-laundry.com', avatar: avatar, images: [image], password: '123456', password_confirmation: '123456', phone: '445349441', address: 'G25, Ground Floor, I-Rise Tower, Tecom, Dubai', emirate: 'Dubai')
 
 coord30 = Geocoder.coordinates('Jebel Ali Race Course Rd - Dubai')
-v1 = Vendor.create!(name: 'Emco Express Laundry', activated: true, lat: coord30[0], lon: coord30[1], email: 'vendor-03@example.com', avatar: avatar, images: [image], password: '123456', password_confirmation: '123456', phone: '44534944', address: 'Jebel Ali Race Course Rd - Dubai', emirate: 'Dubai')
+v1 = Vendor.create!(name: 'Emco Express Laundry', activated: true, lat: coord30[0], lon: coord30[1], email: 'vendor-03@example.com', avatar: avatar, images: [image], password: '123456', password_confirmation: '123456', phone: '445349441', address: 'Jebel Ali Race Course Rd - Dubai', emirate: 'Dubai')
 
 coord40 = Geocoder.coordinates('TECOM - Dubai')
-v1 = Vendor.create!(name: 'Pressto Laundry & Dry Cleaners', activated: true, lat: coord40[0], lon: coord40[1], email: 'vendor-04@presstouae.com', avatar: avatar, images: [image], password: '123456', password_confirmation: '123456', phone: '44534944', address: 'Two Towers, Inside Geant Easy Supermarket, TECOM - Dubai', emirate: 'Dubai')
+v1 = Vendor.create!(name: 'Pressto Laundry & Dry Cleaners', activated: true, lat: coord40[0], lon: coord40[1], email: 'vendor-04@presstouae.com', avatar: avatar, images: [image], password: '123456', password_confirmation: '123456', phone: '445349441', address: 'Two Towers, Inside Geant Easy Supermarket, TECOM - Dubai', emirate: 'Dubai')
 
 coord60 = Geocoder.coordinates('Sheikh Zayed Road - Dubai')
-v1 = Vendor.create!(name: 'Eastern Rose Laundry', activated: true, lat: coord60[0], lon: coord60[1], email: 'vendor-06@easternroselaundry.com', avatar: avatar, images: [image], password: '123456', password_confirmation: '123456', phone: '44534944', address: 'Sheikh Zayed Road - Dubai', emirate: 'Dubai')
+v1 = Vendor.create!(name: 'Eastern Rose Laundry', activated: true, lat: coord60[0], lon: coord60[1], email: 'vendor-06@easternroselaundry.com', avatar: avatar, images: [image], password: '123456', password_confirmation: '123456', phone: '445349441', address: 'Sheikh Zayed Road - Dubai', emirate: 'Dubai')
 
 coord70 = Geocoder.coordinates('Jebel Ali Race Course Rd - Dubai - United Arab Emirates')
-v1 = Vendor.create!(name: 'The laundry Basket', activated: true, lat: coord70[0], lon: coord70[1], email: 'vendor-07@thelaundrybasket.ae', avatar: avatar, images: [image], password: '123456', password_confirmation: '123456', phone: '44534944', address: 'SHOP No. 1,ALSHAIBA GATE BLD,TECOM AREA - Dubai', emirate: 'Dubai')
+v1 = Vendor.create!(name: 'The laundry Basket', activated: true, lat: coord70[0], lon: coord70[1], email: 'vendor-07@thelaundrybasket.ae', avatar: avatar, images: [image], password: '123456', password_confirmation: '123456', phone: '445349441', address: 'SHOP No. 1,ALSHAIBA GATE BLD,TECOM AREA - Dubai', emirate: 'Dubai')
 
 coord80 = Geocoder.coordinates('Street 7 - Dubai')
-v1 = Vendor.create!(name: 'Champion Cleaners', activated: true, lat: coord80[0], lon: coord80[1], email: 'vendor-08@example.com', avatar: avatar, images: [image], password: '123456', password_confirmation: '123456', phone: '44534944', address: 'Street 7 - Dubai', emirate: 'Dubai')
+v1 = Vendor.create!(name: 'Champion Cleaners', activated: true, lat: coord80[0], lon: coord80[1], email: 'vendor-08@example.com', avatar: avatar, images: [image], password: '123456', password_confirmation: '123456', phone: '445349441', address: 'Street 7 - Dubai', emirate: 'Dubai')
 
 
 c1 = Customer.create!(phone: '1234567', prefix_phone: '052', name: 'John', surname: 'Doe', email: 'customer-1@example.com', password: '123456', password_confirmation: '123456', activated: true)
