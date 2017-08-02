@@ -3,14 +3,15 @@ class Calculator
     include ActiveModel::Model
 
     attr_accessor :vendor
+    attr_accessor :order_total
 
     def compute
       if vendor.flat_rate && vendor.flat_rate != 0
-        (total - vendor.flat_rate).to_i
+        (vendor.balance + (order_total - (vendor.flat_rate * 100))).to_i
       elsif vendor.commission && vendor.commission != 0
-        (total * ((100 - vendor.commission.to_f)/100)).to_i
+        (vendor.balance + (order_total * ((100 - vendor.commission.to_f)/100))).to_i
       else
-        total
+        vendor.balance
       end
     end
 

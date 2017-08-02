@@ -60,7 +60,7 @@ class OrderStateMachine
     end
 
     o.after_transition(from: :processing, to: :completed) do |order, transition|
-      order.vendor.update_balance
+      order.vendor.update_balance(order.total)
       notifications_to(order, :customer)
     end
 

@@ -138,8 +138,8 @@ class Vendor < ApplicationRecord
     full_name
   end
 
-  def update_balance
-    total = ::Calculator::OrdersNetTotal.new(vendor: self).compute
+  def update_balance order_total
+    total = ::Calculator::OrdersNetTotal.new(vendor: self, order_total: order_total).compute
     self.update_column(:balance, total)
   end
 
