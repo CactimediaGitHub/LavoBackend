@@ -6,7 +6,6 @@
   <th>Payment type</th>
   <th>Status</th>
   <th>Total bill amount</th>
-  <th>Net payable amount to vendor</th>
 </tr>
 <% orders.each do |order| %>
   <tr>
@@ -17,6 +16,5 @@
     <td><%= order.payment.present? ? order.payment_method.try(:titleize) : '' %></td> 
     <td><%= order.state.titleize %></td>
     <td><%= number_to_currency(order.total_in_aed, unit: '') %> AED</td>
-    <td><%= number_to_currency(order.payable_amount, unit: '') %> AED</td>
   </tr>
 <% end %>

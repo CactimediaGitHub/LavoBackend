@@ -13,8 +13,8 @@
     <td><%= vendor.orders.count %></td>
     <td><%= vendor.orders.regularbasket.count %></td>
     <td><%= vendor.orders.openbasket.count %></td>
-    <td><%= vendor.transactions.sum(&:paid_amount) %></td>
-    <td><%= vendor.commission %></td> 
+    <td><%= number_to_currency((vendor.orders.sum(&:total).to_i/100), unit: '') %> AED</td>
+    <td><%= vendor.lavo_commission %></td> 
     <td><%= number_to_currency(vendor.balance_in_aed, unit: '') %> AED</td>
   </tr>
 <% end %>

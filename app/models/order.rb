@@ -142,7 +142,7 @@ class Order < ApplicationRecord
     vendor_ids = vendor_ids.compact.reject{ |vendor_id| vendor_id.strip.empty? }
     return [] if vendor_ids.blank? && start_date.blank? && end_date.blank?
     orders = Order.includes(:vendor, :payment)
-      .where('orders.vendor_id IN (?)', vendor_ids).references(:orders)
+      .where('orders.vendor_id IN (?) AND orders.state = (?)', vendor_ids, 'completed').references(:orders)
     if (start_date.present? && end_date.present?)
       orders = orders
         .where('orders.created_at BETWEEN (?) AND (?)',start_date, end_date)

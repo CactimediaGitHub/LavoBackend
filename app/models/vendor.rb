@@ -165,6 +165,14 @@ class Vendor < ApplicationRecord
     balance.present? ? balance/100 : 0     
   end
 
+  def lavo_commission
+    if flat_rate && flat_rate != 0
+      return "#{flat_rate.to_f} AED"
+    else
+      return "#{commission.to_f} %"
+    end
+  end
+
   protected
 
   def delete_dirs
