@@ -2,7 +2,7 @@ class API::Order::CalculateCartTotal
   include ActiveModel::Model
   include ActiveModel::Serialization
 
-  attr_accessor :order_items, :shipping, :promotion_amount
+  attr_accessor :order_items, :shipping, :promotion_amount, :vendor_id
   attr_reader :total, :subtotal, :id
 
   validates :shipping, presence: true
@@ -16,7 +16,7 @@ class API::Order::CalculateCartTotal
 
   def cart_calculator
     @cart_calculator ||=
-      API::Order::CartCalculator.new(order_items: order_items, shipping: shipping)
+      API::Order::CartCalculator.new(order_items: order_items, shipping: shipping, vendor_id: @vendor_id)
   end
 
   def total

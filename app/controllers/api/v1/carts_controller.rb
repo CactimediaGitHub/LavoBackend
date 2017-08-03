@@ -18,9 +18,8 @@ class API::V1::CartsController < API::V1::VersionController
   def cart_params
     params.
       require(:order).
-      permit({ order_items: %i(inventory_item_id quantity),
-               shipping: %i(shipping_method_id)
-    })
+      permit(:vendor_id, order_items: %i(inventory_item_id quantity),
+               shipping: %i(shipping_method_id))
   end
 
   def order_items

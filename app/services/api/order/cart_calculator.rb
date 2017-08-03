@@ -1,7 +1,7 @@
 class API::Order::CartCalculator
   include ActiveModel::Model
 
-  attr_accessor :order_items, :shipping
+  attr_accessor :order_items, :shipping, :vendor_id
   attr_reader :total, :subtotal, :promotion_amount
 
   def subtotal
@@ -82,8 +82,8 @@ class API::Order::CartCalculator
     @order ||= Order.new do |o|
       if o.order_items.present?
         o.order_items = find_order_items
-        o.vendor = o.order_items.first.inventory_item.vendor
       end
+      o.vendor_id = @vendor_id
       o.shipping_amount = shipping_amount
       o.subtotal = subtotal
       o.total = o.shipping_amount + o.subtotal
