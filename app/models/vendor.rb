@@ -93,7 +93,18 @@ class Vendor < ApplicationRecord
         ST_Distance(
           ST_SetSRID(ST_Point(#{lat}, #{lon}), 4326)::geography,
           ST_SetSRID(ST_Point(lat, lon), 4326)::geography
-        ) 
+        )
+      )
+    )
+  end
+
+  def self.select_with_distance(lat, lon)
+    select(
+      %(
+        ST_Distance(
+          ST_SetSRID(ST_Point(#{lat}, #{lon}), 4326)::geography,
+          ST_SetSRID(ST_Point(lat, lon), 4326)::geography
+        ), vendors.*
       )
     )
   end
@@ -171,6 +182,14 @@ class Vendor < ApplicationRecord
     else
       return "#{commission.to_f} %"
     end
+  end
+
+  def self.stuff_distance(vendors, serialized_vendors)
+    vendor_json = {}
+    vendor_json[:data] = serialized_vendors[:data].each_with_index do |serialized_vendor, index|
+      serialized_vendor[:attributes][:'st-distance'] = vendors[index].st_distance
+    end
+    vendor_json
   end
 
   protected

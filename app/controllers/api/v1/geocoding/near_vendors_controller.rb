@@ -2,13 +2,13 @@ class API::V1::Geocoding::NearVendorsController < API::V1::VersionController
   wrap_parameters format: [:json]
 
   def show
-    scope_ids = Vendor.activated.near(near_vendors_params).pluck(:id)
-    scoped_relation = Vendor.where(id: scope_ids)
-
-    index = ::Index::NearVendorsIndex.new(self)
-    vendors = index.vendors(scoped_relation)
-    render json: vendors,
-           include: :inventory_items
+    scope_ids = Vendor.activated.near(near_vendors_params)
+    vendors = Vendor.where(id: scope_ids)
+      .select_with_distance(near_vendors_params[:lat], near_vendors_params[:lon])
+    serialized_vendors_json = ActiveModelSerializers::SerializableResource.new(vendors).as_json
+    vendors_json = Vendor.stuff_distance(vendors, serialized_vendors_json)
+    
+    render json: vendors_json
   end
 
   def map
