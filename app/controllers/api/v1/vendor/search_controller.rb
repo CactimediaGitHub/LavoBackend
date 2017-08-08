@@ -4,6 +4,7 @@ class API::V1::Vendor::SearchController < API::V1::VersionController
     vendors = Vendor.search_by_name(Vendor.activated, params[:query])
     	.activated
     	.select_with_distance(near_vendors_params[:lat], near_vendors_params[:lon])
+    	.proximity_order(near_vendors_params[:lat], near_vendors_params[:lon])
     
     serialized_vendors_json = ActiveModelSerializers::SerializableResource.new(vendors).as_json
     
