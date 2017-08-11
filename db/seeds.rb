@@ -114,7 +114,8 @@ vendor1_shipping1 = Shipping.new(shipping_method: vendor1_shipping_method1, addr
 vendor1_order_item1 = OrderItem.new(inventory_item: vendor1_ii1, quantity: 2)
 total1 = API::Order::CartCalculator.new(
   order_items: [ { inventory_item_id: vendor1_ii1.id, quantity: 2 }],
-  shipping: { shipping_method_id: vendor1_shipping_method1.id }
+  shipping: { shipping_method_id: vendor1_shipping_method1.id },
+  vendor_id: v1.id
 ).total
 order1 = Order.new(vendor: v1, customer: c5, order_items: [vendor1_order_item1], shipping: vendor1_shipping1, total: total1)
 order1.save!
@@ -126,7 +127,8 @@ vendor2_shipping2 = Shipping.new(shipping_method: vendor2_shipping_method3, addr
 vendor2_order_item2 = OrderItem.new(inventory_item: vendor2_ii8, quantity: 4)
 total2 = API::Order::CartCalculator.new(
   order_items: [ { inventory_item_id: vendor2_ii8, quantity: 4 }],
-  shipping: { shipping_method_id: vendor2_shipping_method3.id }
+  shipping: { shipping_method_id: vendor2_shipping_method3.id },
+  vendor_id: v2.id
 ).total
 order2 = Order.new(vendor: v2, customer: c2, order_items: [vendor2_order_item2], shipping: vendor2_shipping2, total: total2)
 order2.save
