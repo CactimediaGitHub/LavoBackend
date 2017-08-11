@@ -74,7 +74,18 @@ class Vendor < ApplicationRecord
       lat: args[:lat],
       lon: args[:lon],
       radius: args.fetch(:radius, 5000)
-    ).proximity_order(args[:lat], args[:lon])
+    ).sort_records(args)
+  end
+
+  def self.sort_records(args = {})
+    case args[:sort]
+    when 'st_proximity'
+      proximity_order(args[:lat], args[:lon])
+    when '-cached-average-rating'
+      rating_order
+    when 'inventory_items.price'
+      price_order(args[:filter], args[:sort])
+    end
   end
 
   def self.withing(args = {})
@@ -98,6 +109,18 @@ class Vendor < ApplicationRecord
         )
       )
     )
+  end
+
+  def self.rating_order
+    order(cached_average_rating: :desc)
+  end
+
+  def self.price_order(filters = [], order_by_column)
+    joins(:inventory_items)
+    .where('inventory_items.service_id IN (?) AND inventory_items.item_id IN (?)', 
+           filters[:'inventory_items.service_id'], 
+           filters[:'inventory_items.item_id'])
+    .order(order_by_column)
   end
 
   def self.select_with_distance(lat, lon)

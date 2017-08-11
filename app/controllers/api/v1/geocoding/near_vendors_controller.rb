@@ -26,7 +26,7 @@ class API::V1::Geocoding::NearVendorsController < API::V1::VersionController
   private
 
   def near_vendors_params
-    params.permit(:lat, :lon, :ne, :nw, :se, :sw, :sort, :filter)
+    params.permit(:lat, :lon, :ne, :nw, :se, :sw, :sort, filter: [:"inventory_items.service_id" => [], :"inventory_items.item_id" => []])
   end
 
 end
