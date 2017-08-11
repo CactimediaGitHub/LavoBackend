@@ -93,20 +93,20 @@ InventoryItem.create!(service: s3, item: i1, item_type: item_type3, vendor: v2, 
 
 InventoryItem.create!(service: s1, item: i1, item_type: item_type3, vendor: v3, price: 3000)
 
-vendor1_shipping_method1 = ShippingMethod.create!(vendor: v1, delivery_period: 16, shipping_method_name: ShippingMethodName.first, shipping_charge: 1000)
-shipping_method2 = ShippingMethod.create!(vendor: v1, delivery_period: 8, shipping_method_name: ShippingMethodName.last, shipping_charge: 2000)
+vendor1_shipping_method1 = ShippingMethod.create!(vendor: v1, delivery_period: 16, shipping_method_name: ShippingMethodName.first, shipping_charge_percent: 10)
+shipping_method2 = ShippingMethod.create!(vendor: v1, delivery_period: 8, shipping_method_name: ShippingMethodName.last, shipping_charge_percent: 20)
 
-vendor2_shipping_method3 = ShippingMethod.create!(vendor: v2, delivery_period: 16, shipping_method_name: ShippingMethodName.first, shipping_charge: 1100)
-shipping_method4 = ShippingMethod.create!(vendor: v2, delivery_period: 8, shipping_method_name: ShippingMethodName.last, shipping_charge: 2000)
+vendor2_shipping_method3 = ShippingMethod.create!(vendor: v2, delivery_period: 16, shipping_method_name: ShippingMethodName.first, shipping_charge_percent: 10)
+shipping_method4 = ShippingMethod.create!(vendor: v2, delivery_period: 8, shipping_method_name: ShippingMethodName.last, shipping_charge_percent: 20)
 
-ShippingMethod.create!(vendor: v3, delivery_period: 16, shipping_method_name: ShippingMethodName.first, shipping_charge: 1000)
-ShippingMethod.create!(vendor: v3, delivery_period: 8, shipping_method_name: ShippingMethodName.last, shipping_charge: 2000)
+ShippingMethod.create!(vendor: v3, delivery_period: 16, shipping_method_name: ShippingMethodName.first, shipping_charge_percent: 10)
+ShippingMethod.create!(vendor: v3, delivery_period: 8, shipping_method_name: ShippingMethodName.last, shipping_charge_percent: 20)
 
-ShippingMethod.create!(vendor: v4, delivery_period: 16, shipping_method_name: ShippingMethodName.first, shipping_charge: 1000)
-ShippingMethod.create!(vendor: v4, delivery_period: 8, shipping_method_name: ShippingMethodName.last, shipping_charge: 2000)
+ShippingMethod.create!(vendor: v4, delivery_period: 16, shipping_method_name: ShippingMethodName.first, shipping_charge_percent: 10)
+ShippingMethod.create!(vendor: v4, delivery_period: 8, shipping_method_name: ShippingMethodName.last, shipping_charge_percent: 20)
 
-ShippingMethod.create!(vendor: v5, delivery_period: 16, shipping_method_name: ShippingMethodName.first, shipping_charge: 1000)
-ShippingMethod.create!(vendor: v5, delivery_period: 8, shipping_method_name: ShippingMethodName.last, shipping_charge: 2000)
+ShippingMethod.create!(vendor: v5, delivery_period: 16, shipping_method_name: ShippingMethodName.first, shipping_charge_percent: 10)
+ShippingMethod.create!(vendor: v5, delivery_period: 8, shipping_method_name: ShippingMethodName.last, shipping_charge_percent: 20)
 
 customer1_address1 = Address.create!(customer: c5, address1: 'Al Hamriya', address2: 'Near Dubai Hospital', city: 'Dubai', country: 'AE', human_name: 'My home address', nearest_landmark: '123456')
 customer1_shipping_address1 = ShippingAddress.create!(address1: 'Al Hamriya', address2: 'Near Dubai Hospital', city: 'Dubai', country: 'AE', human_name: 'My home address', nearest_landmark: '123456')
