@@ -44,9 +44,7 @@ class Order < ApplicationRecord
   validates :customer, presence: true
   validates :shipping, presence: true
 
-  validates :total,
-            numericality: { greater_than: 0, only_integer: true },
-            unless: :openbasket
+  validate :minimum_total, unless: :openbasket
 
   after_create :set_initial_state
 
@@ -176,6 +174,12 @@ class Order < ApplicationRecord
       (total_in_aed * ((100 - vendor.commission.to_f)/100)).to_i
     else
       total_in_aed
+    end
+  end
+
+  def minimum_total
+    if total < vendor.minimum_order_amount
+      errors.add(:total, "Order total should be greater than or equal to #{vendor.minimum_order_amount} AED")
     end
   end
 

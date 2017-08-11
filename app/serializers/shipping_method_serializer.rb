@@ -1,5 +1,5 @@
 class ShippingMethodSerializer < ActiveModel::Serializer
-  attributes :id, :shipping_charge, :shipping_method, :delivery_period
+  attributes :id, :shipping_charge_percent, :shipping_method, :delivery_period
 
   has_one :vendor
   # belongs_to :shipping_method_name

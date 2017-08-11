@@ -6,7 +6,7 @@ class ShippingMethod < ApplicationRecord
   belongs_to :shipping_method_name
 
   validates :vendor, presence: true
-  validates :shipping_charge, :delivery_period,
+  validates :shipping_charge_percent, :delivery_period,
             numericality: { greater_than: 0, only_integer: true }
 
   # enum shipping_method: { normal: 'normal', express: 'express' }

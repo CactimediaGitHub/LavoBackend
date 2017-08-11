@@ -1,6 +1,6 @@
 module Admin
   class ShippingMethodsController < Admin::ApplicationController
-    before_action :update_price, only: %i(create update)
+    # before_action :update_price, only: %i(create update)
     # To customize the behavior of this controller,
     # simply overwrite any of the RESTful actions. For example:
     #
@@ -25,9 +25,9 @@ module Admin
 
     protected
 
-    def update_price
-      API::V1::Support::ConvertToCents.new(params: params, parent_key: :shipping_method, child_key: :shipping_charge).convert
-    end
+    # def update_price
+    #   API::V1::Support::ConvertToCents.new(params: params, parent_key: :shipping_method, child_key: :shipping_charge).convert
+    # end
 
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)

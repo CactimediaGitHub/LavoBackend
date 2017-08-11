@@ -2,7 +2,7 @@ class API::Order::Create
   include ActiveModel::Model
   include API::Concerns::ShippingAddressConcern
 
-  attr_accessor :vendor_id, :customer,
+  attr_accessor :vendor_id, :customer, :adjustable_amount,
                 :order_items, :shipping, :order
 
   validates :vendor_id, numericality: { only_integer: true }
@@ -22,6 +22,7 @@ class API::Order::Create
     # FIXME: use block Order.new do |o|
     @order ||=
       ::Order.new(vendor: vendor,
+                  adjustable_amount: adjustable_amount,
                   customer: customer,
                   order_items: order_items.map { |i| OrderItem.new(i) },
                   shipping: make_shipping,
@@ -57,6 +58,6 @@ class API::Order::Create
   private
 
   def cart_calculator
-    @cart_calculator ||= API::Order::CartCalculator.new(order_items: order_items, shipping: shipping)
+    @cart_calculator ||= API::Order::CartCalculator.new(order_items: order_items, shipping: shipping, vendor_id: vendor_id)
   end
 end

@@ -15,7 +15,8 @@ class VendorSerializer < ActiveModel::Serializer
              :cached_average_rating,
              :balance,
              :flat_rate,
-             :commission
+             :commission,
+             :minimum_order_amount
 
 
   has_many :reviews

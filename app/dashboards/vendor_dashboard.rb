@@ -41,6 +41,7 @@ class VendorDashboard < Administrate::BaseDashboard
     commission: Field::Number,
     flat_rate: Field::Number,
     balance: Field::AmountFormat,
+    minimum_order_amount: Field::Number.with_options(decimals: 2),
     images: Field::NestedImageGalleryField.with_options(searchable: false),
     transactions: TransactionSumField
   }.freeze
@@ -62,6 +63,7 @@ class VendorDashboard < Administrate::BaseDashboard
     transactions
     commission
     flat_rate
+    minimum_order_amount
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -74,6 +76,7 @@ class VendorDashboard < Administrate::BaseDashboard
     commission
     flat_rate
     balance
+    minimum_order_amount
     payouts
     inventory_items
     orders
@@ -108,6 +111,7 @@ class VendorDashboard < Administrate::BaseDashboard
     :address,
     :lat,
     :lon,
+    :minimum_order_amount,
     :area,
     :emirate,
     :activated,

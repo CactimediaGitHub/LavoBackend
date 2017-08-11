@@ -47,7 +47,7 @@ class Vendor < ApplicationRecord
   # NOTE: do not set 'by: :customers' option as it overwrites existing Customer#reviews
   is_reviewable scale: (0..5)
 
-  validates :name, :address, presence: true
+  validates :name, :address, :minimum_order_amount, presence: true
   # FIXME: set comission as separate has_many association
   validates :commission, numericality: { greater_than: 0, only_integer: true }
   validates :flat_rate, numericality: { greater_than_or_equal_to: 0, only_integer: true }
@@ -55,6 +55,8 @@ class Vendor < ApplicationRecord
   validates :emirate, presence: true
 
   scope :activated, -> { where(activated: true) }
+
+  before_save :covert_minimum_order_amount
 
   def self.permitted_attributes
     %i(email password password_confirmation avatar name phone address)
@@ -190,6 +192,12 @@ class Vendor < ApplicationRecord
       serialized_vendor[:attributes][:'st-distance'] = vendors[index].st_distance
     end
     vendor_json
+  end
+
+  private
+
+  def covert_minimum_order_amount
+    self.minimum_order_amount = self.minimum_order_amount * 100 if (minimum_order_amount_was != minimum_order_amount)
   end
 
   protected
