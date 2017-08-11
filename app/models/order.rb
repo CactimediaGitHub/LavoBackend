@@ -111,7 +111,8 @@ class Order < ApplicationRecord
   def update_total
     total =
       API::Order::CartCalculator.new(order_items: order_items.map(&:serializable_hash),
-                                        shipping: shipping.serializable_hash).total
+                                     shipping: shipping.serializable_hash
+                                     vendor_id: vendor_id).total
     self.update_column(:total, total)
   end
 
