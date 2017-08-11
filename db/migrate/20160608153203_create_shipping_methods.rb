@@ -15,7 +15,7 @@ class CreateShippingMethods < ActiveRecord::Migration[5.0]
         execute <<-SQL
           ALTER TABLE shipping_methods
             ADD CONSTRAINT positive_shipping_charge
-              CHECK (shipping_charge > 0);
+              CHECK (shipping_charge >= 0);
         SQL
       end
       dir.down do
