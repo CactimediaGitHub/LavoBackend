@@ -13,7 +13,7 @@ class ShippingMethodDashboard < Administrate::BaseDashboard
     # shipping_method: Field::EnumField.with_options(searchable: true, collection: ShippingMethod.shipping_methods, filterable: true, filterable_options: ShippingMethod.shipping_methods.keys.map(&:humanize)),
     shipping_method_name: Field::BelongsTo,
     vendor: Field::BelongsTo,
-    shipping_charge_percent: Field::Number.with_options(decimals: 6),
+    shipping_charge_percent: Field::Number.with_options(decimals: 2),
     delivery_period: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
