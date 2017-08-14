@@ -56,8 +56,6 @@ class Vendor < ApplicationRecord
 
   scope :activated, -> { where(activated: true) }
 
-  before_save :covert_minimum_order_amount
-
   def self.permitted_attributes
     %i(email password password_confirmation avatar name phone address)
   end
@@ -215,12 +213,6 @@ class Vendor < ApplicationRecord
       serialized_vendor[:attributes][:'st-distance'] = vendors[index].st_distance
     end
     vendor_json
-  end
-
-  private
-
-  def covert_minimum_order_amount
-    self.minimum_order_amount = self.minimum_order_amount * 100 if (minimum_order_amount_was != minimum_order_amount)
   end
 
   protected
