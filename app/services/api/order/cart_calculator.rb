@@ -14,17 +14,7 @@ class API::Order::CartCalculator
 
   # NOTE: promotion_amount is negative
   def total
-    vendor_minimum_order_amount = Vendor.find_by(id: @vendor_id).minimum_order_amount
-    if vendor_minimum_order_amount
-      if subtotal < vendor_minimum_order_amount
-        adjustable_amount = vendor_minimum_order_amount - subtotal
-        @total ||= ((shipping_amount * subtotal).to_f/100) + subtotal + adjustable_amount + promotion_amount.to_i
-      else
-        @total ||= ((shipping_amount * subtotal).to_f/100) + subtotal + promotion_amount.to_i
-      end
-    else
-      @total ||= ((shipping_amount * subtotal).to_f/100) + subtotal + promotion_amount.to_i
-    end
+    @total ||= ((shipping_amount * subtotal).to_f/100) + subtotal + promotion_amount.to_i
   end
 
   def promotion_amount

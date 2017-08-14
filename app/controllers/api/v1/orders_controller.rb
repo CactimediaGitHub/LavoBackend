@@ -25,7 +25,7 @@ class API::V1::OrdersController < API::V1::VersionController
   def order_params
     params.
       require(:order).
-      permit(:vendor_id, :adjustable_amount,
+      permit(:vendor_id,
              { order_items: %i(inventory_item_id quantity),
              shipping: %i(address_id shipping_method_id pick_up drop_off) }
       )
