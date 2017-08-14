@@ -8,7 +8,6 @@ class ShippingMethod < ApplicationRecord
   validates :vendor, presence: true
   validates :delivery_period,
             numericality: { greater_than: 0, only_integer: true }
-  validates :shipping_charge_percent, numericality: { only_integer: true }
 
   # enum shipping_method: { normal: 'normal', express: 'express' }
   # validates :shipping_method,
