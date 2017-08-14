@@ -14,7 +14,6 @@ class ShippingMethodDashboard < Administrate::BaseDashboard
     shipping_method_name: Field::BelongsTo,
     vendor: Field::BelongsTo,
     shipping_charge_percent: Field::Number.with_options(decimals: 6),
-    with_options(decimals: 6),
     delivery_period: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
